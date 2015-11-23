@@ -6,9 +6,15 @@
 //  Copyright © 2015年 sunkai. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "CommonMarco.h"
 
-@interface AppDelegate ()
+#import "WXApi.h"
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "WeiboSDK.h"
+#import "AppDelegate.h"
+#import "ViewController.h"
+
+@interface AppDelegate ()<WeiboSDKDelegate>
 
 @end
 
@@ -17,7 +23,53 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self init3rdShare];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyAndVisible];
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+    
+    ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:[NSBundle mainBundle]];
+    [self.window setRootViewController:vc];
+    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([[url absoluteString] hasPrefix:@"tencent"]) {
+        
+        return [TencentOAuth HandleOpenURL:url];
+        
+    }else if([[url absoluteString] hasPrefix:@"wb"]){
+        
+        return [WeiboSDK handleOpenURL:url delegate:self];
+        
+    }
+    
+    return NO;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [TencentOAuth HandleOpenURL:url];
+}
+
+
+/**
+ *  初始化第三方组件
+ */
+- (void)init3rdShare
+{
+    [WXApi registerApp:APP_KEY_WEIXIN];
+    
+    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:APP_KEY_WEIBO];
+    
+}
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response
+{
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

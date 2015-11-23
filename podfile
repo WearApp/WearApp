@@ -1,0 +1,10 @@
+platform:ios, '9.0'
+pod "Mantle"
+pod "AFNetworking"
+pod "AMapLocation"
+pod "pop"
+pod "STPopup"
+pod "MBProgressHUD"
+pod "MGSwipeTableCell"
+pod "PureLayout"
+pod "MJRefresh"
