@@ -62,7 +62,7 @@
             {
                 [wSelf.delegate didGetAddress:regeocode.formattedAddress];
                 [wSelf.delegate didGetLocalCoordinate:location.coordinate];
-                [wSelf.delegate didGetLocalAreaID:[wSelf getAreaidWithCityName:regeocode.city] cityCode:regeocode.citycode districtCode:regeocode.adcode];
+                [wSelf.delegate didGetLocalAreaID:[wSelf getAreaidWithCityName:regeocode.city] cityName:regeocode.city cityCode:regeocode.citycode districtCode:regeocode.adcode];
                 [wSelf.delegate didGetProvince:regeocode.province city:regeocode.city district:regeocode.district];
                 [wSelf.delegate didGetAccuracy:location.horizontalAccuracy];
                 

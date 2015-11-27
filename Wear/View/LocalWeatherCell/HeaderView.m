@@ -7,6 +7,7 @@
 //
 
 #import "HeaderView.h"
+#import "SKChromatography.h"
 
 @interface HeaderView ()
 @property (weak, nonatomic) IBOutlet UILabel *cityNameLabel;
@@ -25,8 +26,14 @@
 
 - (void)setCityName:(NSString *)cityName temperarute:(NSString *)temperature tempLow:(NSString *)tempLow tempHigh:(NSString *)tempHigh {
     [self.cityNameLabel setText:cityName];
-    [self.temperatureLabel setText:[NSString stringWithFormat:@"%@℃", temperature]];
-    [self.highLowTemperatureLabel setText:[NSString stringWithFormat:@"%@℃ - %@℃", tempLow, tempHigh]];
+    [self.temperatureLabel setText:[NSString stringWithFormat:@"%@", temperature]];
+    [self.highLowTemperatureLabel setText:[NSString stringWithFormat:@"%@ - %@", tempLow, tempHigh]];
+    if (![cityName isEqualToString:@"--"]) {
+        [self setBackgroundColor:[SKChromatography temperatureColorWithHue:270-((float)[temperature substringWithRange:NSMakeRange(0, temperature.length-1)].floatValue+20)*0.60*8]];
+    } else {
+        [self setBackgroundColor:[SKChromatography temperatureColorWithHue:270-20*0.60*8]];
+    }
+    
 }
 
 @end

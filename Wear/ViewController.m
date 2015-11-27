@@ -6,10 +6,11 @@
 //  Copyright © 2015年 sunkai. All rights reserved.
 //
 
-//#import "CardRootViewController.h"
-//#import "YQViewController.h"
+#import "CityListViewController.h"
 
-//#import "SKLocation.h"
+#import "UIScrollView+VORefresh.h"
+
+#import "iCocosSettingViewController.h"
 
 #import "TapHeaderGestureRecognizer.h"
 
@@ -43,10 +44,12 @@
 #import <MGSwipeButton.h>
 //SWIFT_CLASS(CFCityPickerVC);
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, SKAMapLocationDelegate, LFindLocationViewControllerDelegete>
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, SKAMapLocationDelegate, LFindLocationViewControllerDelegete, CityListDelegate>
 
-@property (strong, nonatomic) NSMutableArray<NSString *> *cityList;
-@property (strong, nonatomic) NSMutableArray<SKAPIStoreWeatherModel *> *cityArray;
+@property (strong, nonatomic) HeaderView *headerView;
+
+@property (strong, nonatomic) NSMutableArray *guideCellArray;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray<SKAPIStoreWeatherModel *> *cities;
@@ -69,18 +72,53 @@
     CGFloat screenWidth, screenHeight;
 }
 
+#pragma mark - Refreshing
+
+- (void)setupSettingRefreshing {
+    [self.tableView addBottomRefreshWithTarget:self action:@selector(bottomRefreshing)];
+    
+    [self.tableView.bottomRefresh setBackgroundColor:self.headerView.backgroundColor];
+    
+    NSMutableAttributedString *str1 = [[NSMutableAttributedString alloc] initWithString:@"上拉打开设置"];
+    NSMutableAttributedString *str2 = [[NSMutableAttributedString alloc] initWithString:@"上拉打开设置"];
+    NSMutableAttributedString *str3 = [[NSMutableAttributedString alloc] initWithString:@"释放打开设置"];
+    NSMutableAttributedString *str4 = [[NSMutableAttributedString alloc] initWithString:@"正在打开设置"];
+    [str1 addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, str1.length)];
+    [str2 addAttribute:NSForegroundColorAttributeName value:[UIColor purpleColor] range:NSMakeRange(0, str2.length)];
+    [str3 addAttribute:NSForegroundColorAttributeName value:[UIColor brownColor] range:NSMakeRange(0, str3.length)];
+    [str4 addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0, str4.length)];
+    self.tableView.bottomRefresh.refreshTexts = @[str1, str2, str3, str4];
+}
+
+- (void)bottomRefreshing{
+    NSLog(@"setting");
+    
+    iCocosSettingViewController *settingVC = [[iCocosSettingViewController alloc] init];
+//    UINavigationController *naviVC = [[UINavigationController alloc] initWithRootViewController:settingVC];
+    
+    UITabBarController *tabbarVC = [[UITabBarController alloc] init];
+    [tabbarVC addChildViewController:settingVC];
+    
+    [self presentViewController:tabbarVC animated:YES completion:nil];
+    [self.tableView.bottomRefresh endRefreshing];
+}
+
 #pragma mark - HeaderView
 
 - (void)headerViewSet {
+    
+    [[SKAMapLocation shareManager] setDelegate:self];
+    [[SKAMapLocation shareManager] findCurrentLocation];
+    
     self.hasLocalCell = YES;
     
-    HeaderView *headerView = [HeaderView instantiateFromNib];
+    self.headerView = [HeaderView instantiateFromNib];
     
-    [headerView setCityName:@"黄石" temperarute:@"16" tempLow:@"14" tempHigh:@"17"];
-    
-    [self.tableView setParallaxHeaderView:headerView
+    [self.headerView setCityName:@"--" temperarute:@"--" tempLow:@"--" tempHigh:@"--"];
+
+    [self.tableView setParallaxHeaderView:self.headerView
                                      mode:VGParallaxHeaderModeFill
-                                   height:[UIScreen mainScreen].bounds.size.height/8.0*3.0];
+                                   height:((float)[UIScreen mainScreen].bounds.size.height)/8.0*4];
     
 //    UILabel *stickyLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 //    stickyLabel.backgroundColor = [UIColor colorWithRed:1 green:0.749 blue:0.976 alpha:1];
@@ -89,11 +127,11 @@
     
     self.tableView.parallaxHeader.stickyViewPosition = VGParallaxHeaderStickyViewPositionBottom;
     
-    headerView.userInteractionEnabled = YES;
+    self.headerView.userInteractionEnabled = YES;
     TapHeaderGestureRecognizer *tap = [[TapHeaderGestureRecognizer alloc] init];
     [tap addTarget:self action:@selector(presentCardColor:)];
-    [tap setValue:headerView.backgroundColor forKey:@"color"];
-    [headerView addGestureRecognizer:tap];
+    [tap setValue:self.headerView.backgroundColor forKey:@"color"];
+    [self.headerView addGestureRecognizer:tap];
     
 //    [self.tableView.parallaxHeader setStickyView:stickyLabel
 //                                      withHeight:40];
@@ -130,7 +168,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.tableView shouldPositionParallaxHeader];
-    
     // Log Parallax Progress
     //NSLog(@"Progress: %f", scrollView.parallaxHeader.progress);
 }
@@ -145,10 +182,26 @@
     NSLog(@"%f,%f",coordinate.latitude, coordinate.longitude);
 }
 
-- (void)didGetLocalAreaID:(NSString *)areaid cityCode:(NSString *)cityCode districtCode:(NSString *)districtCode {
+- (void)didGetLocalAreaID:(NSString *)areaid cityName:(NSString *)cityName cityCode:(NSString *)cityCode districtCode:(NSString *)districtCode {
     NSLog(@"%@,%@,%@", areaid, cityCode, districtCode);
-}
     
+    
+    if (![HMFileManager getObjectByFileName:areaid]) {
+        [self.headerView setCityName:@"--" temperarute:0 tempLow:0 tempHigh:0];
+        [self refreshLocalWeatherWithCityid:areaid cityName:cityName headerView:self.headerView];
+    } else {
+        SKAPIStoreWeatherModel *savedModel = [HMFileManager getObjectByFileName:areaid];
+        [self.headerView setCityName:savedModel.city temperarute:savedModel.today.currentTemp tempLow:savedModel.today.tempLow tempHigh:savedModel.today.tempHigh];
+        
+        [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.cities.count inSection:0]] setBackgroundColor:self.headerView.backgroundColor];
+        [self.tableView.bottomRefresh setBackgroundColor:self.headerView.backgroundColor];
+        
+        if (![self compareDateWithUpdateTime:savedModel.updateTime]) {
+            [self refreshLocalWeatherWithCityid:areaid cityName:cityName headerView:self.headerView];
+        }
+    }
+}
+
 - (void)didGetProvince:(NSString *)province city:(NSString *)city district:(NSString *)district {
     NSLog(@"%@,%@,%@", province, city, district);
 }
@@ -161,8 +214,36 @@
     NSLog(@"%li:%@",(long)error.code, error.description);
 }
 
+#pragma mark - Local Weather
 
-# pragma mark - Refresh Control
+- (void)refreshLocalWeatherWithCityid:(NSString *)cityid cityName:(NSString *)cityName headerView:(HeaderView *)headerView {
+    [[SKAPIStoreWeatherManager sharedInstance] conditionRequestWithCityid:cityid successBlock:^(SKAPIStoreWeatherModel *model) {
+        if (model.errorNumber!=0) {
+            
+            NSLog(@"refreshlocal");
+            
+            [model setUpdateTime:[NSDate date]];
+            NSLog(@"%@", model);
+            [headerView setCityName:cityName temperarute:model.today.currentTemp tempLow:model.today.tempLow tempHigh:model.today.tempHigh];
+            
+            [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.cities.count inSection:0]] setBackgroundColor:headerView.backgroundColor];
+            [self.tableView.bottomRefresh setBackgroundColor:self.headerView.backgroundColor];
+//            NSLog(@"cell:%@", [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].description);
+            
+            [HMFileManager saveObject:model byFileName:model.cityid];
+        } else {
+            NSLog(@"error:%@",model.errorNumber);
+        }
+    } failureBlock:^(NSError *error) {
+        [headerView setBackgroundColor:[UIColor redColor]];
+        [headerView setCityName:@"获取失败" temperarute:0 tempLow:0 tempHigh:0];
+        NSLog(@"blooo:%@",error.description);
+    }];
+
+}
+
+
+#pragma mark - Refresh Control
 
 -(void)setupRefreshControl{
     
@@ -170,17 +251,27 @@
     [self.sunnyRefreshControl attachToScrollView:self.tableView];
 }
 
-#pragma mark - Lifecycle
+#pragma mark - Pull to load new vc
+//
+//- (void)setupScrollView {
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    
+//    SettingsViewController *settingsVC = [[SettingsViewController alloc] init];
+//    [self addChildViewController:settingsVC];
+//    
+//    [self.tableView setContentSize:CGSizeMake(0, 631)];
+//    if (settingsVC.view != nil) {
+////        _scrollView.secondScrollView = detailVC.scrollView;
+//        [self.tableView setSecondScrollView:settingsVC.view];
+//    }
+//    
+//}
 
-- (void)wipeData {
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
-    [HMFileManager removeFileByFileName:@"cities"];
-    [HMFileManager removeAllFiles];
-//    [HMFileManager removeAllFilesExcept:@"cities.plist"];
-}
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     screenHeight = self.view.frame.size.height;
     screenWidth = self.view.frame.size.width;
     
@@ -194,9 +285,11 @@
     
     self.finishedLoad = NO;
     
-    [self wipeData];
+//    [self wipeData];
     
     [self tableViewSet];
+    
+    [self setupSettingRefreshing];
     
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]){
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
@@ -206,32 +299,14 @@
         NSLog(@"已经不是第一次启动了");
         self.cities = [HMFileManager getObjectByFileName:@"cities"];
     }
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"guide"]){
+        self.guideCellArray = [NSMutableArray arrayWithObjects:@1, @2, @3, @4, @5, nil];
+    } else {
+        self.guideCellArray = nil;
+    }
     
-    [self wipeData];
     
-//    self.defaults = [NSUserDefaults standardUserDefaults];
-//    
-//    self.cities = [NSMutableArray arrayWithArray:[self.defaults arrayForKey:@"cities"]];
-    
-//    [defaults removeObjectForKey:@"cityList"];
-    
-//    self.cityList = [[NSMutableArray alloc] init];
-//    self.cityList = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"cityList"]];
-//    
-//    self.cityArray = [[NSMutableArray alloc] init];
-//    
-//    for (int i=0; i<self.cityList.count; ++i) {
-//        SKAPIStoreWeatherModel *model = [[SKAPIStoreWeatherModel alloc] init];
-//        [self.cityArray insertObject:model atIndex:0];
-//    }
-//    
-//    [self refreshCityModel];
-    
-//    [SKAMapLocation shareManager].delegate = self;
-//    [[SKAMapLocation shareManager] findCurrentLocation];
-    
-//    CFCityPickerVC *pickerVC = [[CFCityPickerVC alloc] init];
-    
+//    [self wipeData];
 }
 
 // 重用 和 第一次加载
@@ -365,18 +440,6 @@
             break; 
         }
     }
-}
-
-- (UIView *)customSnapshotFromView:(UIView *)inputView {
-    
-    UIView *snapshot = [inputView snapshotViewAfterScreenUpdates:YES];
-    snapshot.layer.masksToBounds = NO;
-    snapshot.layer.cornerRadius = 0;
-    snapshot.layer.shadowOffset = CGSizeMake(-5.0, 0.0);
-    snapshot.layer.shadowRadius = 10.0;
-    snapshot.layer.shadowOpacity = 0.6;
-    
-    return snapshot;
 }
 
 #pragma mark - Share Method
@@ -517,11 +580,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"cell";
     
+    
+    
     if (indexPath.row==self.cities.count) {
         EmptyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"emptyCell"];
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"EmptyCell" owner:self options:nil] lastObject];
         }
+        cell.backgroundColor = self.headerView.backgroundColor;
         UILongPressGestureRecognizer *emptyGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:nil action:nil];
         [cell addGestureRecognizer:emptyGesture];
         return cell;
@@ -538,6 +604,10 @@
         } else {
             SKAPIStoreWeatherModel *savedModel = [HMFileManager getObjectByFileName:[self getAreaidWithCityName:self.cities[indexPath.row].city]];
             [cell setCityName:savedModel.city conditionNum:0 temperatureHi:[savedModel.today.tempHigh intValue] temperatureLow:[savedModel.today.tempLow intValue]];
+            
+            if (![self compareDateWithUpdateTime:savedModel.updateTime]) {
+                [self refreshCell:cell withIndexPath:indexPath weatherModel:self.cities[indexPath.row]];
+            }
         }
         
         
@@ -582,11 +652,29 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row==self.cities.count) {
+//        
+//        LFindLocationViewController *findLocationVC = [[LFindLocationViewController alloc] init];
+//        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:findLocationVC];
+//        findLocationVC.delegete = self;
+//        [self presentViewController:nav animated:YES completion:nil];
         
-        LFindLocationViewController *findLocationVC = [[LFindLocationViewController alloc] init];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:findLocationVC];
-        findLocationVC.delegete = self;
-        [self presentViewController:nav animated:YES completion:nil];
+        CityListViewController *cityListVC = [[CityListViewController alloc] init];
+        cityListVC.delegete = self;
+        STPopupController *popupController = [[STPopupController alloc] initWithRootViewController:cityListVC];
+        
+        [popupController.navigationBar setBarTintColor:[tableView cellForRowAtIndexPath:indexPath].backgroundColor];
+        [popupController.navigationBar setTintColor:[UIColor whiteColor]];
+        [popupController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+        [cityListVC.view setBackgroundColor:[tableView cellForRowAtIndexPath:indexPath].backgroundColor];
+        
+        [popupController setCornerRadius:10.0f];
+        
+        if (NSClassFromString(@"UIBlurEffect")) {
+            UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+            popupController.backgroundView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        }
+        
+        [popupController presentInViewController:self];
         
 //        ZHPickView *pickView = [[ZHPickView alloc] initPickviewWithPlistName:@"city" isHaveNavControler:YES];
 //        [pickView show];
@@ -606,7 +694,6 @@
         }
         
         [popupController presentInViewController:self];
-    
     }
 }
 
@@ -619,6 +706,28 @@
     } else {
         return screenHeight/8.0f;
     }
+}
+
+#pragma mark - City List Delegate
+
+- (void)didSelectCityWithName:(NSString *)cityName {
+    NSLog(@">>>>>>>>>>>>%@",cityName);
+    
+    for (SKAPIStoreWeatherModel *model in self.cities) {
+        if ([cityName isEqualToString:model.city]) {
+            NSLog(@"已经添加%@", cityName);
+            return;
+        }
+    }
+    
+    SKAPIStoreWeatherModel *model = [[SKAPIStoreWeatherModel alloc] init];
+    model.city = cityName;
+    
+    NSLog(@"111");
+    
+    [self updateItemAtIndexPath:[NSIndexPath indexPathForRow:self.cities.count inSection:0] withObject:model];
+    
+    NSLog(@"111");
 }
 
 #pragma mark - LFindLocationViewControllerDelegete
@@ -637,19 +746,114 @@
     SKAPIStoreWeatherModel *model = [[SKAPIStoreWeatherModel alloc] init];
     model.city = city;
     
-    NSLog(@"111");
-    
     [self updateItemAtIndexPath:[NSIndexPath indexPathForRow:self.cities.count inSection:0] withObject:model];
-    
-    NSLog(@"111");
 }
 
 #pragma mark - Util
 
+- (UIView *)customSnapshotFromView:(UIView *)inputView {
+    
+    UIView *snapshot = [inputView snapshotViewAfterScreenUpdates:YES];
+    snapshot.layer.masksToBounds = NO;
+    snapshot.layer.cornerRadius = 0;
+    snapshot.layer.shadowOffset = CGSizeMake(-5.0, 0.0);
+    snapshot.layer.shadowRadius = 10.0;
+    snapshot.layer.shadowOpacity = 0.6;
+    
+    return snapshot;
+}
+
+/**
+ * @brief 判断时间是否失效，如果失效返回假，未失效返回真
+ * @param date 需要比较的时间
+ */
+- (BOOL)compareDateWithUpdateTime:(NSDate *)date {
+    NSDate *date8 = [self getCustomDateWithHour:8];
+    NSDate *date11 = [self getCustomDateWithHour:11];
+    NSDate *date18 = [self getCustomDateWithHour:18];
+    if ([[NSDate date] compare:date8]==NSOrderedAscending||[[NSDate date] compare:date8]==NSOrderedSame) {
+        // 0 < now <= 8
+        // 用date和前一天的晚18点比，如果早于或等于前一天晚18点，返回假，否则返回真。
+        NSDate *yesterday18 = [date18 dateByAddingTimeInterval:24*60*60];
+        if ([date compare:yesterday18] == NSOrderedAscending||[date compare:yesterday18]==NSOrderedSame) {
+            return NO;
+        } else {
+            return YES;
+        }
+    } else if ([[NSDate date] compare:date8]==NSOrderedDescending&&([[NSDate date] compare:date11]==NSOrderedAscending||[[NSDate date] compare:date11]==NSOrderedSame)) {
+        // 8 < now <= 11
+        // 用date和今天8点比，如果早于或等于今天8点，返回假，否则返回真。
+        if ([date compare:date8] == NSOrderedAscending||[date compare:date8]==NSOrderedSame) {
+            return NO;
+        } else {
+            return YES;
+        }
+    } else if ([[NSDate date] compare:date11]==NSOrderedDescending&&([[NSDate date] compare:date18]==NSOrderedAscending||[[NSDate date] compare:date18]==NSOrderedSame)) {
+        // 11 < now <= 18
+        // 用date和今天11点比，如果早于或等于今天11点，返回假，否则返回真。
+        if ([date compare:date11] == NSOrderedAscending||[date compare:date11]==NSOrderedSame) {
+            return NO;
+        } else {
+            return YES;
+        }
+    } else if ([[NSDate date] compare:date18]==NSOrderedDescending) {
+        // 18 < now < 24
+        // 用date和今天18点比，如果早于或等于今天18点，返回假，否则返回真。
+        if ([date compare:date18] == NSOrderedAscending||[date compare:date18]==NSOrderedSame) {
+            return NO;
+        } else {
+            return YES;
+        }
+    } else {
+        return NO;
+    }
+}
+
+/**
+ * @brief 生成当天的某个点（返回的是伦敦时间，可直接与当前时间[NSDate date]比较）
+ * @param hour 如hour为“8”，就是上午8:00（本地时间）
+ */
+- (NSDate *)getCustomDateWithHour:(NSInteger)hour
+{
+    //获取当前时间
+    NSDate *currentDate = [NSDate date];
+    NSCalendar *currentCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *currentComps = [[NSDateComponents alloc] init];
+    
+    NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    
+    currentComps = [currentCalendar components:unitFlags fromDate:currentDate];
+    
+    //设置当天的某个点
+    NSDateComponents *resultComps = [[NSDateComponents alloc] init];
+    [resultComps setYear:[currentComps year]];
+    [resultComps setMonth:[currentComps month]];
+    [resultComps setDay:[currentComps day]];
+    [resultComps setHour:hour];
+    
+    NSCalendar *resultCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    return [resultCalendar dateFromComponents:resultComps];
+}
+
+/**
+ * @brief 返回某个地点对应的区域编号，NSString类型
+ * @param cityName 某个地点名称，不含区域等级类型，如天津（不是天津市），北辰（不是北辰区）
+ */
 - (NSString *)getAreaidWithCityName:(NSString *)cityName {
-    NSDictionary *areaidDictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cityName" ofType:@"plist"]];
+    NSDictionary *areaidDictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"chinaCodeList" ofType:@"plist"]];
     return areaidDictionary[cityName];
 }
+
+/**
+ * @brief 清除应用文件归档数据以及设置为应用首次启动
+ */
+- (void)wipeData {
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+    [HMFileManager removeFileByFileName:@"cities"];
+    [HMFileManager removeAllFiles];
+    //    [HMFileManager removeAllFilesExcept:@"cities.plist"];
+}
+
 
 #pragma mark - Refresh City Model
 
@@ -688,57 +892,6 @@
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     [HMFileManager saveObject:self.cities byFileName:@"cities"];
     [self.tableView endUpdates];
-}
-
-- (void)refreshCityModel {
-    for (int i=0; i<self.cityList.count; ++i) {
-        
-        
-   
-        NSString *areaid = [self getAreaidWithCityName:self.cityList[i]];
-//        NSLog(@"%@",self.cityList[i]);
-//        NSLog(@"%@",areaid);
-        
-        [[SKAPIStoreWeatherManager sharedInstance] conditionRequestWithCityid:areaid successBlock:^(SKAPIStoreWeatherModel *model) {
-            if (model.errorNumber!=0) {
-//                [((WeatherTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i+1 inSection:i+1]]) setCityName:self.cityList[i] conditionNum:0 wearSuggestionNum:0 temperatureHi:10 temperatureLow:10];
-                [self.cityArray insertObject:model atIndex:0];
-//                NSLog(@"%@",self.cityArray[0]);
-                self.finishedLoad = YES;
-//                NSLog(@"%i",self.cityArray.count);
-                
-                NSIndexPath *indexPath_1=[NSIndexPath indexPathForRow:i inSection:0];
-                NSArray *indexArray=[NSArray arrayWithObject:indexPath_1];
-//                NSLog(@"%i",i);
-                [self.tableView reloadRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationBottom];
-                
-// TODO: 只刷新一行数据
-                
-                
-                
-//                NSLog(@"blooo:%@,%@,%@",model.today,model.forecast,model.history);
-            } else {
-                NSLog(@"error:%@",model.errorNumber);
-            }
-        } failureBlock:^(NSError *error) {
-            NSLog(@"blooo:%@",error.description);
-        }];
-    }
-}
-
-- (void)refreshCity:(NSString *)cityName {
-    NSString *areaid = [self getAreaidWithCityName:cityName];
-    
-    [[SKAPIStoreWeatherManager sharedInstance] conditionRequestWithCityid:areaid successBlock:^(SKAPIStoreWeatherModel *model) {
-        if (model.errorNumber!=0) {
-            [self.cityArray insertObject:model atIndex:0];
-            NSLog(@"blooo:%@,%@,%@",model.today,model.forecast,model.history);
-        } else {
-            NSLog(@"error:%@",model.errorNumber);
-        }
-    } failureBlock:^(NSError *error) {
-        NSLog(@"blooo:%@",error.description);
-    }];
 }
 
 @end

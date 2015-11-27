@@ -13,7 +13,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9P-ja-qCo">
-                    <rect key="frame" x="16" y="36" width="150" height="40"/>
+                    <rect key="frame" x="16" y="20" width="150" height="40"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="K5a-j8-Cra"/>
@@ -67,13 +67,13 @@
                 </label>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.085445977747440338" green="0.72148698568344116" blue="0.55394947528839111" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="OY7-Fh-vvD" secondAttribute="bottom" constant="22" id="4Eh-yn-gtz"/>
                 <constraint firstAttribute="bottom" secondItem="mhm-Zc-LZw" secondAttribute="bottom" constant="22" id="4Sw-6s-JBX"/>
                 <constraint firstItem="ZRl-NS-Qv4" firstAttribute="height" secondItem="7jN-Ow-xcu" secondAttribute="height" id="ARr-Ae-PMS"/>
                 <constraint firstItem="ZRl-NS-Qv4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Fod-6S-NzQ"/>
-                <constraint firstItem="p9P-ja-qCo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="36" id="H0R-Ve-qZg"/>
+                <constraint firstItem="p9P-ja-qCo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="H0R-Ve-qZg"/>
                 <constraint firstItem="OY7-Fh-vvD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Ir9-pM-dHi"/>
                 <constraint firstAttribute="trailing" secondItem="3Hk-U4-w1W" secondAttribute="trailing" constant="16" id="YQV-6u-f6Z"/>
                 <constraint firstItem="mhm-Zc-LZw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aUC-pa-xEU"/>

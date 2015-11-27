@@ -42,6 +42,18 @@
 		B10C30661C01683A003C5EC9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B10C30651C01683A003C5EC9 /* libz.tbd */; };
 		B10C30681C016841003C5EC9 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B10C30671C016841003C5EC9 /* libstdc++.tbd */; };
 		B10C306A1C016847003C5EC9 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B10C30691C016847003C5EC9 /* libiconv.tbd */; };
+		B10D755B1C036A1400499B20 /* EggsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B10D75591C036A1400499B20 /* EggsViewController.m */; };
+		B10D755C1C036A1400499B20 /* EggsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10D755A1C036A1400499B20 /* EggsViewController.xib */; };
+		B10D75641C037BDA00499B20 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10D75631C037BDA00499B20 /* NotificationCenter.framework */; };
+		B10D75681C037BDA00499B20 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B10D75671C037BDA00499B20 /* TodayViewController.m */; };
+		B10D756B1C037BDA00499B20 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B10D75691C037BDA00499B20 /* MainInterface.storyboard */; };
+		B10D756F1C037BDA00499B20 /* WearTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B10D75621C037BDA00499B20 /* WearTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B10D757C1C037C6800499B20 /* IndexRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B10D757B1C037C6800499B20 /* IndexRequestHandler.m */; };
+		B10D75801C037C6800499B20 /* WearSpotlightExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B10D75781C037C6800499B20 /* WearSpotlightExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B10D75EA1C04988200499B20 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = B10D75E51C04988200499B20 /* check.png */; };
+		B10D75EB1C04988200499B20 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = B10D75E61C04988200499B20 /* citydict.plist */; };
+		B10D75EC1C04988200499B20 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B10D75E81C04988200499B20 /* CityListViewController.m */; };
+		B10D75ED1C04988200499B20 /* CityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10D75E91C04988200499B20 /* CityListViewController.xib */; };
 		B1404F761BCA0C3000078EE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1404F751BCA0C3000078EE9 /* main.m */; };
 		B1404F791BCA0C3000078EE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1404F781BCA0C3000078EE9 /* AppDelegate.m */; };
 		B1404F7C1BCA0C3000078EE9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1404F7B1BCA0C3000078EE9 /* ViewController.m */; };
@@ -76,11 +88,35 @@
 		B16B4BC61BF866D300377BF0 /* WmHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B16B4BC41BF866D300377BF0 /* WmHttpRequestManager.m */; };
 		B16B4BCB1BF897FC00377BF0 /* EmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B16B4BC91BF897FC00377BF0 /* EmptyCell.m */; };
 		B16B4BCC1BF897FC00377BF0 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16B4BCA1BF897FC00377BF0 /* EmptyCell.xib */; };
+		B1832DFC1C05EAC300A90584 /* citydict1.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1832DFB1C05EAC300A90584 /* citydict1.plist */; };
 		B19708B71C00802A008AD2AF /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19708B21C00802A008AD2AF /* HeaderView.m */; };
 		B19708B81C00802A008AD2AF /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19708B31C00802A008AD2AF /* HeaderView.xib */; };
 		B19708B91C00802A008AD2AF /* UIScrollView+VGParallaxHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B19708B61C00802A008AD2AF /* UIScrollView+VGParallaxHeader.m */; };
+		B199C2771C06BAF10048F9B9 /* citydictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = B199C2751C06BAF10048F9B9 /* citydictionary.plist */; };
+		B199C2781C06BAF10048F9B9 /* provincedictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = B199C2761C06BAF10048F9B9 /* provincedictionary.plist */; };
+		B199C27D1C06BEBF0048F9B9 /* CitySelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B199C27B1C06BEBF0048F9B9 /* CitySelectTableViewController.m */; };
+		B199C27E1C06BEBF0048F9B9 /* CitySelectTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B199C27C1C06BEBF0048F9B9 /* CitySelectTableViewController.xib */; };
+		B199C2841C06C75D0048F9B9 /* autonomousRegionCodeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B199C2801C06C75D0048F9B9 /* autonomousRegionCodeList.plist */; };
+		B199C2851C06C75D0048F9B9 /* municipalityCodeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B199C2811C06C75D0048F9B9 /* municipalityCodeList.plist */; };
+		B199C2861C06C75D0048F9B9 /* provinceCodeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B199C2821C06C75D0048F9B9 /* provinceCodeList.plist */; };
+		B199C2871C06C75D0048F9B9 /* sarCodeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B199C2831C06C75D0048F9B9 /* sarCodeList.plist */; };
+		B199C2891C06C81D0048F9B9 /* chinaCodeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B199C2881C06C81D0048F9B9 /* chinaCodeList.plist */; };
+		B199C28D1C06D8B90048F9B9 /* MLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B199C28C1C06D8B90048F9B9 /* MLSearchBar.m */; };
+		B1A68C861C06EEF000BCD01E /* HotCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A68C841C06EEF000BCD01E /* HotCityTableViewCell.m */; };
+		B1A68C871C06EEF000BCD01E /* HotCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1A68C851C06EEF000BCD01E /* HotCityTableViewCell.xib */; };
 		B1B1AD0C1C02ADFD00CA3E65 /* TapHeaderGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD0B1C02ADFD00CA3E65 /* TapHeaderGestureRecognizer.m */; };
-		B1B1AD101C030A5400CA3E65 /* UIScrollView+JYPaging.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD0F1C030A5400CA3E65 /* UIScrollView+JYPaging.m */; };
+		B1B1AD4D1C032CEE00CA3E65 /* iCocosBaseSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD1E1C032CEE00CA3E65 /* iCocosBaseSettingViewController.m */; };
+		B1B1AD4E1C032CEE00CA3E65 /* iCocosPushNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD201C032CEE00CA3E65 /* iCocosPushNoticeViewController.m */; };
+		B1B1AD4F1C032CEE00CA3E65 /* iCocosSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD221C032CEE00CA3E65 /* iCocosSettingViewController.m */; };
+		B1B1AD501C032CEE00CA3E65 /* iCocosSettingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD251C032CEE00CA3E65 /* iCocosSettingGroup.m */; };
+		B1B1AD511C032CEE00CA3E65 /* iCocosSettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD271C032CEE00CA3E65 /* iCocosSettingItem.m */; };
+		B1B1AD681C032CEE00CA3E65 /* iCocosSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD4C1C032CEE00CA3E65 /* iCocosSettingCell.m */; };
+		B1B1AD781C03414A00CA3E65 /* VORingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD701C03414A00CA3E65 /* VORingIndicator.m */; };
+		B1B1AD791C03414A00CA3E65 /* VORingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD721C03414A00CA3E65 /* VORingProgressView.m */; };
+		B1B1AD7A1C03414A00CA3E65 /* UIScrollView+VORefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD751C03414A00CA3E65 /* UIScrollView+VORefresh.m */; };
+		B1B1AD7B1C03414A00CA3E65 /* VORefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD771C03414A00CA3E65 /* VORefreshView.m */; };
+		B1BB8F5C1C087B2A008814A4 /* FirstRunTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BB8F5A1C087B2A008814A4 /* FirstRunTableViewCell.m */; };
+		B1BB8F5D1C087B2A008814A4 /* FirstRunTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1BB8F5B1C087B2A008814A4 /* FirstRunTableViewCell.xib */; };
 		B1ECABF11BF953FF00A8BDAA /* CFCityPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ECABDC1BF953FF00A8BDAA /* CFCityPickerVC.swift */; };
 		B1ECABF21BF953FF00A8BDAA /* CFCityPickerVCCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ECABDE1BF953FF00A8BDAA /* CFCityPickerVCCommon.swift */; };
 		B1ECABF31BF953FF00A8BDAA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ECABDF1BF953FF00A8BDAA /* LocationManager.swift */; };
@@ -112,6 +148,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B10D756D1C037BDA00499B20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1404F691BCA0C3000078EE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B10D75611C037BDA00499B20;
+			remoteInfo = WearTodayExtension;
+		};
+		B10D757E1C037C6800499B20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1404F691BCA0C3000078EE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B10D75771C037C6800499B20;
+			remoteInfo = WearSpotlightExtension;
+		};
 		B1404F8B1BCA0C3000078EE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B1404F691BCA0C3000078EE9 /* Project object */;
@@ -127,6 +177,31 @@
 			remoteInfo = Wear;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B10D75731C037BDA00499B20 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B10D75801C037C6800499B20 /* WearSpotlightExtension.appex in Embed App Extensions */,
+				B10D756F1C037BDA00499B20 /* WearTodayExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B10D75DF1C03E92600499B20 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5A4630EE586112E69E6EAAB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +260,24 @@
 		B10C30651C01683A003C5EC9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B10C30671C016841003C5EC9 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		B10C30691C016847003C5EC9 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		B10D75581C036A1400499B20 /* EggsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EggsViewController.h; path = EggsViewController/EggsViewController.h; sourceTree = "<group>"; };
+		B10D75591C036A1400499B20 /* EggsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EggsViewController.m; path = EggsViewController/EggsViewController.m; sourceTree = "<group>"; };
+		B10D755A1C036A1400499B20 /* EggsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EggsViewController.xib; path = EggsViewController/EggsViewController.xib; sourceTree = "<group>"; };
+		B10D75621C037BDA00499B20 /* WearTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WearTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10D75631C037BDA00499B20 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		B10D75661C037BDA00499B20 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		B10D75671C037BDA00499B20 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		B10D756A1C037BDA00499B20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		B10D756C1C037BDA00499B20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B10D75781C037C6800499B20 /* WearSpotlightExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WearSpotlightExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10D757A1C037C6800499B20 /* IndexRequestHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexRequestHandler.h; sourceTree = "<group>"; };
+		B10D757B1C037C6800499B20 /* IndexRequestHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexRequestHandler.m; sourceTree = "<group>"; };
+		B10D757D1C037C6800499B20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B10D75E51C04988200499B20 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		B10D75E61C04988200499B20 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
+		B10D75E71C04988200499B20 /* CityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListViewController.h; sourceTree = "<group>"; };
+		B10D75E81C04988200499B20 /* CityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListViewController.m; sourceTree = "<group>"; };
+		B10D75E91C04988200499B20 /* CityListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityListViewController.xib; sourceTree = "<group>"; };
 		B1404F711BCA0C3000078EE9 /* Wear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1404F751BCA0C3000078EE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B1404F771BCA0C3000078EE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -249,15 +342,52 @@
 		B16B4BC81BF897FC00377BF0 /* EmptyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyCell.h; sourceTree = "<group>"; };
 		B16B4BC91BF897FC00377BF0 /* EmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyCell.m; sourceTree = "<group>"; };
 		B16B4BCA1BF897FC00377BF0 /* EmptyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
+		B1832DFB1C05EAC300A90584 /* citydict1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict1.plist; sourceTree = "<group>"; };
 		B19708B11C00802A008AD2AF /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		B19708B21C00802A008AD2AF /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		B19708B31C00802A008AD2AF /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		B19708B51C00802A008AD2AF /* UIScrollView+VGParallaxHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+VGParallaxHeader.h"; sourceTree = "<group>"; };
 		B19708B61C00802A008AD2AF /* UIScrollView+VGParallaxHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+VGParallaxHeader.m"; sourceTree = "<group>"; };
+		B199C2751C06BAF10048F9B9 /* citydictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydictionary.plist; sourceTree = "<group>"; };
+		B199C2761C06BAF10048F9B9 /* provincedictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = provincedictionary.plist; sourceTree = "<group>"; };
+		B199C27A1C06BEBF0048F9B9 /* CitySelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySelectTableViewController.h; sourceTree = "<group>"; };
+		B199C27B1C06BEBF0048F9B9 /* CitySelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySelectTableViewController.m; sourceTree = "<group>"; };
+		B199C27C1C06BEBF0048F9B9 /* CitySelectTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitySelectTableViewController.xib; sourceTree = "<group>"; };
+		B199C2801C06C75D0048F9B9 /* autonomousRegionCodeList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = autonomousRegionCodeList.plist; sourceTree = "<group>"; };
+		B199C2811C06C75D0048F9B9 /* municipalityCodeList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = municipalityCodeList.plist; sourceTree = "<group>"; };
+		B199C2821C06C75D0048F9B9 /* provinceCodeList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = provinceCodeList.plist; sourceTree = "<group>"; };
+		B199C2831C06C75D0048F9B9 /* sarCodeList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sarCodeList.plist; sourceTree = "<group>"; };
+		B199C2881C06C81D0048F9B9 /* chinaCodeList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = chinaCodeList.plist; sourceTree = "<group>"; };
+		B199C28B1C06D8B90048F9B9 /* MLSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSearchBar.h; sourceTree = "<group>"; };
+		B199C28C1C06D8B90048F9B9 /* MLSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSearchBar.m; sourceTree = "<group>"; };
+		B1A68C831C06EEF000BCD01E /* HotCityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCityTableViewCell.h; sourceTree = "<group>"; };
+		B1A68C841C06EEF000BCD01E /* HotCityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCityTableViewCell.m; sourceTree = "<group>"; };
+		B1A68C851C06EEF000BCD01E /* HotCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCityTableViewCell.xib; sourceTree = "<group>"; };
 		B1B1AD0A1C02ADFD00CA3E65 /* TapHeaderGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapHeaderGestureRecognizer.h; sourceTree = "<group>"; };
 		B1B1AD0B1C02ADFD00CA3E65 /* TapHeaderGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapHeaderGestureRecognizer.m; sourceTree = "<group>"; };
-		B1B1AD0E1C030A5400CA3E65 /* UIScrollView+JYPaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+JYPaging.h"; sourceTree = "<group>"; };
-		B1B1AD0F1C030A5400CA3E65 /* UIScrollView+JYPaging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+JYPaging.m"; sourceTree = "<group>"; };
+		B1B1AD1D1C032CEE00CA3E65 /* iCocosBaseSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCocosBaseSettingViewController.h; sourceTree = "<group>"; };
+		B1B1AD1E1C032CEE00CA3E65 /* iCocosBaseSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCocosBaseSettingViewController.m; sourceTree = "<group>"; };
+		B1B1AD1F1C032CEE00CA3E65 /* iCocosPushNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCocosPushNoticeViewController.h; sourceTree = "<group>"; };
+		B1B1AD201C032CEE00CA3E65 /* iCocosPushNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCocosPushNoticeViewController.m; sourceTree = "<group>"; };
+		B1B1AD211C032CEE00CA3E65 /* iCocosSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCocosSettingViewController.h; sourceTree = "<group>"; };
+		B1B1AD221C032CEE00CA3E65 /* iCocosSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCocosSettingViewController.m; sourceTree = "<group>"; };
+		B1B1AD241C032CEE00CA3E65 /* iCocosSettingGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCocosSettingGroup.h; sourceTree = "<group>"; };
+		B1B1AD251C032CEE00CA3E65 /* iCocosSettingGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCocosSettingGroup.m; sourceTree = "<group>"; };
+		B1B1AD261C032CEE00CA3E65 /* iCocosSettingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCocosSettingItem.h; sourceTree = "<group>"; };
+		B1B1AD271C032CEE00CA3E65 /* iCocosSettingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCocosSettingItem.m; sourceTree = "<group>"; };
+		B1B1AD4B1C032CEE00CA3E65 /* iCocosSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCocosSettingCell.h; sourceTree = "<group>"; };
+		B1B1AD4C1C032CEE00CA3E65 /* iCocosSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCocosSettingCell.m; sourceTree = "<group>"; };
+		B1B1AD6F1C03414A00CA3E65 /* VORingIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VORingIndicator.h; sourceTree = "<group>"; };
+		B1B1AD701C03414A00CA3E65 /* VORingIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VORingIndicator.m; sourceTree = "<group>"; };
+		B1B1AD711C03414A00CA3E65 /* VORingProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VORingProgressView.h; sourceTree = "<group>"; };
+		B1B1AD721C03414A00CA3E65 /* VORingProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VORingProgressView.m; sourceTree = "<group>"; };
+		B1B1AD741C03414A00CA3E65 /* UIScrollView+VORefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+VORefresh.h"; sourceTree = "<group>"; };
+		B1B1AD751C03414A00CA3E65 /* UIScrollView+VORefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+VORefresh.m"; sourceTree = "<group>"; };
+		B1B1AD761C03414A00CA3E65 /* VORefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VORefreshView.h; sourceTree = "<group>"; };
+		B1B1AD771C03414A00CA3E65 /* VORefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VORefreshView.m; sourceTree = "<group>"; };
+		B1BB8F591C087B2A008814A4 /* FirstRunTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstRunTableViewCell.h; sourceTree = "<group>"; };
+		B1BB8F5A1C087B2A008814A4 /* FirstRunTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstRunTableViewCell.m; sourceTree = "<group>"; };
+		B1BB8F5B1C087B2A008814A4 /* FirstRunTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstRunTableViewCell.xib; sourceTree = "<group>"; };
 		B1ECABDC1BF953FF00A8BDAA /* CFCityPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFCityPickerVC.swift; sourceTree = "<group>"; };
 		B1ECABDE1BF953FF00A8BDAA /* CFCityPickerVCCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFCityPickerVCCommon.swift; sourceTree = "<group>"; };
 		B1ECABDF1BF953FF00A8BDAA /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -298,6 +428,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B10D755F1C037BDA00499B20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10D75641C037BDA00499B20 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B10D75751C037C6800499B20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1404F6E1BCA0C3000078EE9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,6 +505,7 @@
 				B10C304F1C0167CF003C5EC9 /* Security.framework */,
 				B1ECAC0F1BF95BC700A8BDAA /* CoreFoundation.framework */,
 				5A4630EE586112E69E6EAAB7 /* libPods.a */,
+				B10D75631C037BDA00499B20 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -484,12 +630,67 @@
 			path = ShareUtil;
 			sourceTree = "<group>";
 		};
+		B10D755D1C036A2500499B20 /* Eggs */ = {
+			isa = PBXGroup;
+			children = (
+				B10D75581C036A1400499B20 /* EggsViewController.h */,
+				B10D75591C036A1400499B20 /* EggsViewController.m */,
+				B10D755A1C036A1400499B20 /* EggsViewController.xib */,
+			);
+			name = Eggs;
+			sourceTree = "<group>";
+		};
+		B10D75651C037BDA00499B20 /* WearTodayExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B10D75661C037BDA00499B20 /* TodayViewController.h */,
+				B10D75671C037BDA00499B20 /* TodayViewController.m */,
+				B10D75691C037BDA00499B20 /* MainInterface.storyboard */,
+				B10D756C1C037BDA00499B20 /* Info.plist */,
+			);
+			path = WearTodayExtension;
+			sourceTree = "<group>";
+		};
+		B10D75791C037C6800499B20 /* WearSpotlightExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B10D757A1C037C6800499B20 /* IndexRequestHandler.h */,
+				B10D757B1C037C6800499B20 /* IndexRequestHandler.m */,
+				B10D757D1C037C6800499B20 /* Info.plist */,
+			);
+			path = WearSpotlightExtension;
+			sourceTree = "<group>";
+		};
+		B10D75E41C04988200499B20 /* CityList */ = {
+			isa = PBXGroup;
+			children = (
+				B199C2751C06BAF10048F9B9 /* citydictionary.plist */,
+				B199C2761C06BAF10048F9B9 /* provincedictionary.plist */,
+				B1832DFB1C05EAC300A90584 /* citydict1.plist */,
+				B10D75E51C04988200499B20 /* check.png */,
+				B10D75E61C04988200499B20 /* citydict.plist */,
+				B10D75E71C04988200499B20 /* CityListViewController.h */,
+				B10D75E81C04988200499B20 /* CityListViewController.m */,
+				B10D75E91C04988200499B20 /* CityListViewController.xib */,
+				B199C27A1C06BEBF0048F9B9 /* CitySelectTableViewController.h */,
+				B199C27B1C06BEBF0048F9B9 /* CitySelectTableViewController.m */,
+				B199C27C1C06BEBF0048F9B9 /* CitySelectTableViewController.xib */,
+				B1A68C831C06EEF000BCD01E /* HotCityTableViewCell.h */,
+				B1A68C841C06EEF000BCD01E /* HotCityTableViewCell.m */,
+				B1A68C851C06EEF000BCD01E /* HotCityTableViewCell.xib */,
+			);
+			name = CityList;
+			path = View/CityList;
+			sourceTree = "<group>";
+		};
 		B1404F681BCA0C3000078EE9 = {
 			isa = PBXGroup;
 			children = (
 				B1404F731BCA0C3000078EE9 /* Wear */,
 				B1404F8D1BCA0C3000078EE9 /* WearTests */,
 				B1404F981BCA0C3000078EE9 /* WearUITests */,
+				B10D75651C037BDA00499B20 /* WearTodayExtension */,
+				B10D75791C037C6800499B20 /* WearSpotlightExtension */,
 				B1404F721BCA0C3000078EE9 /* Products */,
 				EB58C86EAF7FF9E7F5AE1E6A /* Pods */,
 				ADA430959C3EE5362CB3CDDC /* Frameworks */,
@@ -502,6 +703,8 @@
 				B1404F711BCA0C3000078EE9 /* Wear.app */,
 				B1404F8A1BCA0C3000078EE9 /* WearTests.xctest */,
 				B1404F951BCA0C3000078EE9 /* WearUITests.xctest */,
+				B10D75621C037BDA00499B20 /* WearTodayExtension.appex */,
+				B10D75781C037C6800499B20 /* WearSpotlightExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -509,6 +712,8 @@
 		B1404F731BCA0C3000078EE9 /* Wear */ = {
 			isa = PBXGroup;
 			children = (
+				B199C27F1C06C75D0048F9B9 /* CodeList */,
+				B1B1AD111C0327F500CA3E65 /* Settings */,
 				B10C300D1C016727003C5EC9 /* Share */,
 				B16749951BEB4B3700650742 /* ThirdPart */,
 				B16B4B7D1BF8445B00377BF0 /* Weather */,
@@ -522,7 +727,6 @@
 				B1404FA71BCA492800078EE9 /* ViewController.xib */,
 				B1404F801BCA0C3000078EE9 /* Assets.xcassets */,
 				B1404F821BCA0C3000078EE9 /* LaunchScreen.storyboard */,
-				B1404F851BCA0C3000078EE9 /* Info.plist */,
 			);
 			path = Wear;
 			sourceTree = "<group>";
@@ -530,6 +734,7 @@
 		B1404F741BCA0C3000078EE9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1404F851BCA0C3000078EE9 /* Info.plist */,
 				B1404F751BCA0C3000078EE9 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -556,7 +761,9 @@
 		B1404FAE1BCA4B7E00078EE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B1B1AD0D1C030A5400CA3E65 /* JYPaging */,
+				B1BB8F581C087B18008814A4 /* FirstRunCell */,
+				B10D75E41C04988200499B20 /* CityList */,
+				B199C28A1C06D8B90048F9B9 /* MLSearchBar */,
 				B10C2FE01C00AD77003C5EC9 /* YALSunnyRefreshControll */,
 				B19708B01C00802A008AD2AF /* LocalWeatherCell */,
 				B1ECAC241BFAAC9300A8BDAA /* YRActivityIndicator */,
@@ -761,14 +968,113 @@
 			path = VGParallaxHeader;
 			sourceTree = "<group>";
 		};
-		B1B1AD0D1C030A5400CA3E65 /* JYPaging */ = {
+		B199C27F1C06C75D0048F9B9 /* CodeList */ = {
 			isa = PBXGroup;
 			children = (
-				B1B1AD0E1C030A5400CA3E65 /* UIScrollView+JYPaging.h */,
-				B1B1AD0F1C030A5400CA3E65 /* UIScrollView+JYPaging.m */,
+				B199C2881C06C81D0048F9B9 /* chinaCodeList.plist */,
+				B199C2801C06C75D0048F9B9 /* autonomousRegionCodeList.plist */,
+				B199C2811C06C75D0048F9B9 /* municipalityCodeList.plist */,
+				B199C2821C06C75D0048F9B9 /* provinceCodeList.plist */,
+				B199C2831C06C75D0048F9B9 /* sarCodeList.plist */,
 			);
-			name = JYPaging;
-			path = View/JYPaging;
+			path = CodeList;
+			sourceTree = "<group>";
+		};
+		B199C28A1C06D8B90048F9B9 /* MLSearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				B199C28B1C06D8B90048F9B9 /* MLSearchBar.h */,
+				B199C28C1C06D8B90048F9B9 /* MLSearchBar.m */,
+			);
+			name = MLSearchBar;
+			path = View/MLSearchBar;
+			sourceTree = "<group>";
+		};
+		B1B1AD111C0327F500CA3E65 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B1B1AD6E1C03414A00CA3E65 /* RingProgress */,
+				B1B1AD731C03414A00CA3E65 /* VORefresh */,
+				B1B1AD1B1C032CEE00CA3E65 /* iCocosSetting */,
+				B10D755D1C036A2500499B20 /* Eggs */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B1B1AD1B1C032CEE00CA3E65 /* iCocosSetting */ = {
+			isa = PBXGroup;
+			children = (
+				B1B1AD1C1C032CEE00CA3E65 /* Controller */,
+				B1B1AD231C032CEE00CA3E65 /* Model */,
+				B1B1AD4A1C032CEE00CA3E65 /* View */,
+			);
+			path = iCocosSetting;
+			sourceTree = "<group>";
+		};
+		B1B1AD1C1C032CEE00CA3E65 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B1B1AD1D1C032CEE00CA3E65 /* iCocosBaseSettingViewController.h */,
+				B1B1AD1E1C032CEE00CA3E65 /* iCocosBaseSettingViewController.m */,
+				B1B1AD1F1C032CEE00CA3E65 /* iCocosPushNoticeViewController.h */,
+				B1B1AD201C032CEE00CA3E65 /* iCocosPushNoticeViewController.m */,
+				B1B1AD211C032CEE00CA3E65 /* iCocosSettingViewController.h */,
+				B1B1AD221C032CEE00CA3E65 /* iCocosSettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B1B1AD231C032CEE00CA3E65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B1B1AD241C032CEE00CA3E65 /* iCocosSettingGroup.h */,
+				B1B1AD251C032CEE00CA3E65 /* iCocosSettingGroup.m */,
+				B1B1AD261C032CEE00CA3E65 /* iCocosSettingItem.h */,
+				B1B1AD271C032CEE00CA3E65 /* iCocosSettingItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B1B1AD4A1C032CEE00CA3E65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1B1AD4B1C032CEE00CA3E65 /* iCocosSettingCell.h */,
+				B1B1AD4C1C032CEE00CA3E65 /* iCocosSettingCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B1B1AD6E1C03414A00CA3E65 /* RingProgress */ = {
+			isa = PBXGroup;
+			children = (
+				B1B1AD6F1C03414A00CA3E65 /* VORingIndicator.h */,
+				B1B1AD701C03414A00CA3E65 /* VORingIndicator.m */,
+				B1B1AD711C03414A00CA3E65 /* VORingProgressView.h */,
+				B1B1AD721C03414A00CA3E65 /* VORingProgressView.m */,
+			);
+			path = RingProgress;
+			sourceTree = "<group>";
+		};
+		B1B1AD731C03414A00CA3E65 /* VORefresh */ = {
+			isa = PBXGroup;
+			children = (
+				B1B1AD741C03414A00CA3E65 /* UIScrollView+VORefresh.h */,
+				B1B1AD751C03414A00CA3E65 /* UIScrollView+VORefresh.m */,
+				B1B1AD761C03414A00CA3E65 /* VORefreshView.h */,
+				B1B1AD771C03414A00CA3E65 /* VORefreshView.m */,
+			);
+			path = VORefresh;
+			sourceTree = "<group>";
+		};
+		B1BB8F581C087B18008814A4 /* FirstRunCell */ = {
+			isa = PBXGroup;
+			children = (
+				B1BB8F591C087B2A008814A4 /* FirstRunTableViewCell.h */,
+				B1BB8F5A1C087B2A008814A4 /* FirstRunTableViewCell.m */,
+				B1BB8F5B1C087B2A008814A4 /* FirstRunTableViewCell.xib */,
+			);
+			name = FirstRunCell;
+			path = View/FirstRunCell;
 			sourceTree = "<group>";
 		};
 		B1ECABDB1BF953FF00A8BDAA /* CFCityPickerVC */ = {
@@ -894,6 +1200,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B10D75611C037BDA00499B20 /* WearTodayExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B10D75721C037BDA00499B20 /* Build configuration list for PBXNativeTarget "WearTodayExtension" */;
+			buildPhases = (
+				B10D755E1C037BDA00499B20 /* Sources */,
+				B10D755F1C037BDA00499B20 /* Frameworks */,
+				B10D75601C037BDA00499B20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WearTodayExtension;
+			productName = WearTodayExtension;
+			productReference = B10D75621C037BDA00499B20 /* WearTodayExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B10D75771C037C6800499B20 /* WearSpotlightExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B10D75811C037C6800499B20 /* Build configuration list for PBXNativeTarget "WearSpotlightExtension" */;
+			buildPhases = (
+				B10D75741C037C6800499B20 /* Sources */,
+				B10D75751C037C6800499B20 /* Frameworks */,
+				B10D75761C037C6800499B20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WearSpotlightExtension;
+			productName = WearSpotlightExtension;
+			productReference = B10D75781C037C6800499B20 /* WearSpotlightExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B1404F701BCA0C3000078EE9 /* Wear */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1404F9E1BCA0C3000078EE9 /* Build configuration list for PBXNativeTarget "Wear" */;
@@ -904,10 +1244,15 @@
 				B1404F6F1BCA0C3000078EE9 /* Resources */,
 				BCB8DEE5A63A015B35827660 /* Embed Pods Frameworks */,
 				535E45D1D25B5D4FF53F0876 /* Copy Pods Resources */,
+				B10D75731C037BDA00499B20 /* Embed App Extensions */,
+				B10D75DF1C03E92600499B20 /* Embed Watch Content */,
+				B1761E961C07E94A005FE9E6 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B10D756E1C037BDA00499B20 /* PBXTargetDependency */,
+				B10D757F1C037C6800499B20 /* PBXTargetDependency */,
 			);
 			name = Wear;
 			productName = Wear;
@@ -960,6 +1305,14 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = sunkai;
 				TargetAttributes = {
+					B10D75611C037BDA00499B20 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 6278Q96CU6;
+					};
+					B10D75771C037C6800499B20 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 6278Q96CU6;
+					};
 					B1404F701BCA0C3000078EE9 = {
 						CreatedOnToolsVersion = 7.0;
 						SystemCapabilities = {
@@ -994,43 +1347,75 @@
 				B1404F701BCA0C3000078EE9 /* Wear */,
 				B1404F891BCA0C3000078EE9 /* WearTests */,
 				B1404F941BCA0C3000078EE9 /* WearUITests */,
+				B10D75611C037BDA00499B20 /* WearTodayExtension */,
+				B10D75771C037C6800499B20 /* WearSpotlightExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B10D75601C037BDA00499B20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10D756B1C037BDA00499B20 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B10D75761C037C6800499B20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1404F6F1BCA0C3000078EE9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B1404F841BCA0C3000078EE9 /* LaunchScreen.storyboard in Resources */,
+				B199C2841C06C75D0048F9B9 /* autonomousRegionCodeList.plist in Resources */,
 				B1ECABF91BF953FF00A8BDAA /* img.bundle in Resources */,
+				B199C27E1C06BEBF0048F9B9 /* CitySelectTableViewController.xib in Resources */,
+				B199C2781C06BAF10048F9B9 /* provincedictionary.plist in Resources */,
+				B199C2861C06C75D0048F9B9 /* provinceCodeList.plist in Resources */,
 				B10C2FE51C00AD77003C5EC9 /* YALSunnyRefreshControl.xib in Resources */,
 				B1ECAC1D1BFA3A5200A8BDAA /* cityName.plist in Resources */,
 				B10C30481C016728003C5EC9 /* logo.jpg in Resources */,
 				B1ECAC1F1BFA471200A8BDAA /* down.png in Resources */,
+				B10D75EA1C04988200499B20 /* check.png in Resources */,
 				B10C30441C016728003C5EC9 /* icon_share_qq@2x.png in Resources */,
+				B1A68C871C06EEF000BCD01E /* HotCityTableViewCell.xib in Resources */,
 				B1ECABFF1BF953FF00A8BDAA /* HeaderItemView.xib in Resources */,
 				B1ECABFB1BF953FF00A8BDAA /* CFCityCell.xib in Resources */,
 				B1ECAC0A1BF9542E00A8BDAA /* city.plist in Resources */,
 				B10C303D1C016727003C5EC9 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				B1654A541BF76F2D00A0B4B1 /* WeatherTableViewCell.xib in Resources */,
 				B1654A441BF741D500A0B4B1 /* cityList.plist in Resources */,
+				B10D755C1C036A1400499B20 /* EggsViewController.xib in Resources */,
 				B10C30451C016728003C5EC9 /* icon_share_qzone@2x.png in Resources */,
 				B10C30431C016728003C5EC9 /* icon_share_moment@2x.png in Resources */,
+				B199C2891C06C81D0048F9B9 /* chinaCodeList.plist in Resources */,
 				B10C30461C016728003C5EC9 /* icon_share_webo@2x.png in Resources */,
 				B10C30471C016728003C5EC9 /* icon_share_wechat@2x.png in Resources */,
 				B1654A621BF76F4A00A0B4B1 /* CardViewController.xib in Resources */,
+				B199C2871C06C75D0048F9B9 /* sarCodeList.plist in Resources */,
+				B10D75EB1C04988200499B20 /* citydict.plist in Resources */,
+				B1BB8F5D1C087B2A008814A4 /* FirstRunTableViewCell.xib in Resources */,
+				B199C2771C06BAF10048F9B9 /* citydictionary.plist in Resources */,
 				B1ECABF51BF953FF00A8BDAA /* CitySearchResultVC.xib in Resources */,
 				B10C303F1C016728003C5EC9 /* read_me.txt in Resources */,
 				B1ECAC1C1BFA3A5200A8BDAA /* cityID.plist in Resources */,
 				B1ECAC2D1BFB090B00A8BDAA /* APIStoreCityList.plist in Resources */,
 				B1404FA81BCA492800078EE9 /* ViewController.xib in Resources */,
 				B16B4BCC1BF897FC00377BF0 /* EmptyCell.xib in Resources */,
+				B199C2851C06C75D0048F9B9 /* municipalityCodeList.plist in Resources */,
+				B1832DFC1C05EAC300A90584 /* citydict1.plist in Resources */,
 				B19708B81C00802A008AD2AF /* HeaderView.xib in Resources */,
 				B10C30411C016728003C5EC9 /* WeiboSDK.bundle in Resources */,
 				B1654A651BF76F4A00A0B4B1 /* journey_phone@2x.png in Resources */,
 				B1404F811BCA0C3000078EE9 /* Assets.xcassets in Resources */,
+				B10D75ED1C04988200499B20 /* CityListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1066,6 +1451,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B1761E961C07E94A005FE9E6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n# Copyright 2014-2015 Bugly @Tencent. All rights reserved.\n#\n# V 1.1\n#\n################################################################################\n# 注意: 请配置下面的信息\n################################################################################\nBUGLY_APP_ID=\"900013005\"\nBUGLY_APP_KEY=\"0fKYerbltDP0p4EE\"\nBUNDLE_IDENTIFIER=\"Kai-Sun.Wear\"\n################################################################################\n# 自定义配置\n################################################################################\n# Debug模式编译是否上传，1＝上传 0＝不上传，默认不上传\nUPLOAD_DEBUG_SYMBOLS=1\n#\n# 模拟器编译是否上传，1=上传 0=不上传，默认不上传\nUPLOAD_SIMULATOR_SYMBOLS=1\n#\n# # 脚本默认配置的版本格式为CFBundleShortVersionString(CFBundleVersion),  如果你修改默认的版本格式, 请设置此变量, 如果不想修改, 请忽略此设置\n# CUSTOMIZED_APP_VERSION=\"\"\n#\n#\n#\n# This script will extract symbols from the .dSYM and generate .symbol file(Bugly supported) and upload to server.\n# You could visit http://bugly.qq.com to get more details about Bugly.\n#\n# Usage:\n#   * The instructions assume you have copyed this script into your project int Xcode.\n#   * Copy the \"buglySymbolIOS.jar\" file into the \"~/bin\" folder.\n#   * Open the project editor, select your build target.\n#   * Click \"Build Phases\" at the top of the project editor.\n#   * Click \"+\" button in the top left corner and select \"New Run Script Phase\".\n#   * Click \"Run Script\".\n#   * Paste the following script into the dark text box. You will have to uncomment the lines (remove the #) of course.\n#\n# --- SCRIPT BEGINS ON NEXT LINE, COPY AND EDIT FROM THERE ---\n#\n#\n#\n# --- END OF SCRIPT ---\n\n\n################################################################################\n# 注意: 如果你不知道此脚本的执行流程和用法，请不要随便修改！\n################################################################################\n\n# 退出执行并打印提示信息\nexitWithMessage() {\n    echo \"--------------------------------\"\n    echo -e \"${1}\"\n    echo \"--------------------------------\"\n    echo \"No upload and exit.\"\n    echo \"----------------------------------------------------------------\"\n    exit ${2}\n}\n\necho \"----------------------------------------------------------------\"\necho \"Copyright 2014-2015 Bugly @Tencent. All rights reserved.\"\n\necho \"This script will extract symbols from the .dSYM file and generate .symbol file(Bugly supported) and upload to server.\"\necho \"You could visit http://bugly.qq.com to get more details about Bugly.\"\necho \"----------------------------------------------------------------\"\n\necho \"Uploading dSYM to Bugly.\"\necho \"\"\n\n# Bugly服务域名\nDSYM_UPLOAD_DOMAIN=\"bugly.qq.com\"\n\n# 读取Info.plist文件中的版本信息\necho \"Info.Plist : ${INFOPLIST_FILE}\"\n\nBUNDLE_VERSION=$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' \"${INFOPLIST_FILE}\")\nBUNDLE_SHORT_VERSION=$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' \"${INFOPLIST_FILE}\")\n\n# 组装Bugly默认识别的版本信息(格式为CFBundleShortVersionString(CFBundleVersion), 例如: 1.0(1))\nif [ ! \"${CUSTOMIZED_APP_VERSION}\" ]; then\nBUGLY_APP_VERSION=\"${BUNDLE_SHORT_VERSION}(${BUNDLE_VERSION})\"\nelse\nBUGLY_APP_VERSION=\"${CUSTOMIZED_APP_VERSION}\"\nfi\n\n# Bugly符号提取工具路径, 请确保已经把对应的buglySymboliOS.jar拷贝到目录~/bin\nBUGLY_SYMBOL_JAR_PATH=\"$HOME/bin/buglySymboliOS.jar\"\n\necho \"--------------------------------\"\necho \"Step 1: Prepare application information.\"\necho \"--------------------------------\"\n\necho \"Product Name: ${PRODUCT_NAME}\"\necho \"Bundle Identifier: ${BUNDLE_IDENTIFIER}\"\necho \"Version: ${BUNDLE_SHORT_VERSION}\"\necho \"Build: ${BUNDLE_VERSION}\"\n\necho \"Bugly App ID: ${BUGLY_APP_ID}\"\necho \"Bugly App key: ${BUGLY_APP_KEY}\"\necho \"Bugly App Version: ${BUGLY_APP_VERSION}\"\n\necho \"--------------------------------\"\necho \"Step 2: Check the arguments ...\"\n\n# 检查模拟器编译是否允许上传符号\nif [ \"$EFFECTIVE_PLATFORM_NAME\" == \"-iphonesimulator\" ]; then\nif [ $UPLOAD_SIMULATOR_SYMBOLS -eq 0 ]; then\nexitWithMessage \"Warning: Build for simulator and skipping to upload. \\nYou can modify 'UPLOAD_SIMULATOR_SYMBOLS' to 1 in the script.\" 0\nfi\nfi\n\nif [ \"${CONFIGURATION=}\" == \"Debug\" ]; then\nif [ $UPLOAD_DEBUG_SYMBOLS -eq 0 ]; then\nexitWithMessage \"Warning: Build for debug mode and skipping to upload. \\nYou can modify 'UPLOAD_DEBUG_SYMBOLS' to 1 in the script.\" 0\nfi\nfi\n\n# 检查必须参数是否设置\nif [ ! \"${BUGLY_APP_ID}\" ]; then\nexitWithMessage \"Error: Bugly App ID not defined.\" 1\nfi\n\nif [ ! \"${BUGLY_APP_KEY}\" ]; then\nexitWithMessage \"Error: Bugly APP Key not defined.\" 1\nfi\n\nif [ ! \"${BUNDLE_IDENTIFIER}\" ]; then\nexitWithMessage \"Error: Bundle Identifier not defined.\" 1\nfi\n\nfunction uploadDSYM {\n    DSYM_SRC=\"$1\"\n    echo \".dSYM file: ${DSYM_SRC}\"\n    if [ ! -d \"$DSYM_SRC\" ]; then\n    exitWithMessage \"dSYM source not found: ${DSYM_SRC}\" 1\n    fi\n    DSYM_FILE_NAME=${DSYM_SRC##*/}\n        DSYM_SYMBOL_OUT_ZIP_NAME=\"${DSYM_FILE_NAME}.bSymbol.zip\"\n        # 替换空格\n        DSYM_SYMBOL_OUT_ZIP_NAME=\"${DSYM_SYMBOL_OUT_ZIP_NAME// /_}\"\n        DSYM_ZIP_FPATH=\"${BUILT_PRODUCTS_DIR}/${DSYM_SYMBOL_OUT_ZIP_NAME}\"\n        \n        DSYM_SYMBOL_BACKUP_DIR=${BUILD_DIR}/Symbols\n        \n        if [ ! -e \"${DSYM_SYMBOL_BACKUP_DIR}\" ]; then\n        mkdir ${DSYM_SYMBOL_BACKUP_DIR}\n        fi\n        \n        # 备份并清理\n        find ${BUILT_PRODUCTS_DIR} -name \"*.zip\" -print0 | xargs -0 -I {} mv {} ${DSYM_SYMBOL_BACKUP_DIR}\n        /bin/rm -rf \"${BUILT_PRODUCTS_DIR}/*.zip\"\n        \n        echo \"Extract symbols from dSYM to ${DSYM_ZIP_FPATH}.\"\n        \n        echo \"--------------------------------\"\n        (/usr/bin/java -jar \"${BUGLY_SYMBOL_JAR_PATH}\" -i \"${DSYM_SRC}\" -o \"${DSYM_ZIP_FPATH}\" ) || exitWithMessage \"Error: Failed to extract symbols.\" 1\n        echo \"--------------------------------\"\n        \n        if [ ! -e \"${DSYM_ZIP_FPATH}\" ]; then\n        DSYM_SYMBOL_OUT_ZIP_NAME=$(ls ${BUILT_PRODUCTS_DIR} | grep \".zip\")\n        DSYM_ZIP_FPATH=\"${BUILT_PRODUCTS_DIR}/${DSYM_SYMBOL_OUT_ZIP_NAME}\"\n        DSYM_SYMBOL_OUT_ZIP_NAME=${DSYM_SYMBOL_OUT_ZIP_NAME//&/_}\n            fi\n            \n            if [ ! -e \"${DSYM_ZIP_FPATH}\" ] ; then\n            exitWithMessage \"no symbol file zip archive generated: ${DSYM_ZIP_FPATH}\" 1\n            fi\n            \n            # 提取符号信息\n            echo \"--------------------------------\"\n            echo \"Step 3: Extract symbol info from .dSYM file.\"\n            \n            if [ ! -e \"$BUGLY_SYMBOL_JAR_PATH\" ]; then\n            exitWithMessage \"Error: Jar file '${BUGLY_SYMBOL_JAR_PATH}' was not found. \\nPlease copy the jar file into ~/bin folder.\" 1\n            fi\n            \n            echo \"Step 4: Upload the symbols of dSYM.\"\n            echo \"--------------------------------\"\n            echo \"zip : ${DSYM_SYMBOL_OUT_ZIP_NAME}\"\n            echo \"dir : ${DSYM_ZIP_FPATH}\"\n            \n            echo \"dSYM upload domain: ${DSYM_UPLOAD_DOMAIN}\"\n            DSYM_UPLOAD_URL=\"http://${DSYM_UPLOAD_DOMAIN}/upload/dsym?app=${BUGLY_APP_ID}&pid=2&ver=${BUGLY_APP_VERSION}&n=${DSYM_SYMBOL_OUT_ZIP_NAME}&key=${BUGLY_APP_KEY}&bid=${BUNDLE_IDENTIFIER}\"\n            echo \"dSYM upload url: ${DSYM_UPLOAD_URL}\"\n            \n            # Upload dSYM to Bugly\n            echo \"curl --header \"Content-Type:application/zip\" --data-binary \"@${DSYM_ZIP_FPATH}\" \"${DSYM_UPLOAD_URL}\" --verbose\"\n            \n            echo \"--------------------------------\"\n            STATUS=$(/usr/bin/curl --header \"Content-Type:application/zip\" --data-binary \"@${DSYM_ZIP_FPATH}\" \"${DSYM_UPLOAD_URL}\" --verbose)\n            echo \"--------------------------------\"\n            \n            UPLOAD_RESULT=\"FAILTURE\"\n            echo \"Bugly server response: ${STATUS}\"\n            if [ ! \"${STATUS}\" ]; then\n            echo \"Error: Failed to upload the zip archive file.\"\n            elif [[ \"${STATUS}\" == *\":true\"* ]]; then\n            echo \"Success to upload the dSYM for the app [${BUNDLE_IDENTIFIER} ${BUGLY_APP_VERSION}]\"\n            UPLOAD_RESULT=\"SUCCESS\"\n            else\n            echo \"Error: Failed to upload the zip archive file to Bugly.\"\n            fi\n            \n            #Remove temp dSYM archive\n            echo \"Remove temporary zip archive: ${DSYM_ZIP_FPATH}\"\n            #/bin/rm -f \"${DSYM_ZIP_FPATH}\"\n            \n            if [ \"$?\" -ne 0 ]; then\n            exitWithMessage \"Error: Failed to remove temporary zip archive.\" 1\n            fi\n            \n            echo \"--------------------------------\"\n            echo \"${UPLOAD_RESULT} - dSYM upload complete.\"\n            \n            if [[ \"${UPLOAD_RESULT}\" == \"FAILTURE\" ]]; then\n            echo \"--------------------------------\"\n            echo \"Failed to upload the dSYM\"\n            echo \"Please check the script and try it again.\"\n            fi\n            \n            echo \"----------------------------------------------------------------\"\n        }\n        \n        # .dSYM文件信息\n        \n        echo \"DSYM FOLDER ${DWARF_DSYM_FOLDER_PATH}\"\n        \n        DSYM_FOLDER=\"${DWARF_DSYM_FOLDER_PATH}\"\n        \n        IFS=$'\\n'\n        \n        for dsymFile in $(find \"$DSYM_FOLDER\" -name '*.dSYM'); do\n        echo \"Found dSYM file: $dsymFile\"\n        uploadDSYM $dsymFile\n        done\n        \n";
+		};
 		BCB8DEE5A63A015B35827660 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1099,6 +1497,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B10D755E1C037BDA00499B20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10D75681C037BDA00499B20 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B10D75741C037C6800499B20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10D757C1C037C6800499B20 /* IndexRequestHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1404F6D1BCA0C3000078EE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1107,27 +1521,37 @@
 				B1654A631BF76F4A00A0B4B1 /* Item.m in Sources */,
 				B1654A491BF765A000A0B4B1 /* SKAMapLocation.m in Sources */,
 				B1654A611BF76F4A00A0B4B1 /* CardViewController.m in Sources */,
+				B1B1AD4D1C032CEE00CA3E65 /* iCocosBaseSettingViewController.m in Sources */,
 				B1ECABF41BF953FF00A8BDAA /* CitySearchResultVC.swift in Sources */,
+				B1B1AD7A1C03414A00CA3E65 /* UIScrollView+VORefresh.m in Sources */,
 				B1ECAC191BFA009700A8BDAA /* NSObject+Encodeing.m in Sources */,
 				B10C304D1C016728003C5EC9 /* XMShareView.m in Sources */,
 				B10C304B1C016728003C5EC9 /* XMShareWechatUtil.m in Sources */,
 				B1ECAC0B1BF9542E00A8BDAA /* LCCollectionViewCell.m in Sources */,
+				B1B1AD791C03414A00CA3E65 /* VORingProgressView.m in Sources */,
+				B199C28D1C06D8B90048F9B9 /* MLSearchBar.m in Sources */,
 				B1ECAC0D1BF9542E00A8BDAA /* LFindLocationViewController.m in Sources */,
+				B1B1AD511C032CEE00CA3E65 /* iCocosSettingItem.m in Sources */,
 				B1654A641BF76F4A00A0B4B1 /* ItemCell.m in Sources */,
 				B19708B71C00802A008AD2AF /* HeaderView.m in Sources */,
+				B1B1AD7B1C03414A00CA3E65 /* VORefreshView.m in Sources */,
 				B1ECABFC1BF953FF00A8BDAA /* CityMaskView.swift in Sources */,
 				B1ECAC271BFAAC9300A8BDAA /* YRActivityIndicator.m in Sources */,
 				B1ECAC0C1BF9542E00A8BDAA /* LCityModels.m in Sources */,
 				B16B4B951BF84AD300377BF0 /* SKAPIStoreWeatherManager.m in Sources */,
 				B16B4BB81BF8506900377BF0 /* SKAPIStoreWeatherModel.m in Sources */,
 				B10C304A1C016728003C5EC9 /* XMShareUtil.m in Sources */,
+				B1B1AD4F1C032CEE00CA3E65 /* iCocosSettingViewController.m in Sources */,
 				B16B4B991BF84B5900377BF0 /* LGReachability.m in Sources */,
+				B1A68C861C06EEF000BCD01E /* HotCityTableViewCell.m in Sources */,
 				B10C30421C016728003C5EC9 /* VerticalUIButton.m in Sources */,
 				B1ECABFD1BF953FF00A8BDAA /* CitySearchBar.swift in Sources */,
 				B16B4B911BF84A9100377BF0 /* SKHeWeatherManager.m in Sources */,
+				B1BB8F5C1C087B2A008814A4 /* FirstRunTableViewCell.m in Sources */,
+				B199C27D1C06BEBF0048F9B9 /* CitySelectTableViewController.m in Sources */,
+				B1B1AD781C03414A00CA3E65 /* VORingIndicator.m in Sources */,
 				B16B4BCB1BF897FC00377BF0 /* EmptyCell.m in Sources */,
 				B1654A661BF76F4A00A0B4B1 /* PicAndTextActionSheet.m in Sources */,
-				B1B1AD101C030A5400CA3E65 /* UIScrollView+JYPaging.m in Sources */,
 				B10C30491C016728003C5EC9 /* XMShareQQUtil.m in Sources */,
 				B1ECABF21BF953FF00A8BDAA /* CFCityPickerVCCommon.swift in Sources */,
 				B16B4BBB1BF8509700377BF0 /* SKAPIStoreOtherDayModel.m in Sources */,
@@ -1136,7 +1560,9 @@
 				B1404F7C1BCA0C3000078EE9 /* ViewController.m in Sources */,
 				B1ECABF71BF953FF00A8BDAA /* CFCityPickerVC+TableView.swift in Sources */,
 				B16B4BAB1BF84CB400377BF0 /* Reachability.m in Sources */,
+				B10D75EC1C04988200499B20 /* CityListViewController.m in Sources */,
 				B16B4BBE1BF853FB00377BF0 /* SKAPIStoreIndexModel.m in Sources */,
+				B1B1AD4E1C032CEE00CA3E65 /* iCocosPushNoticeViewController.m in Sources */,
 				B10C304C1C016728003C5EC9 /* XMShareWeiboUtil.m in Sources */,
 				B1654A531BF76F2D00A0B4B1 /* WeatherTableViewCell.m in Sources */,
 				B1ECAC0E1BF9542E00A8BDAA /* PooSearchBar.m in Sources */,
@@ -1149,12 +1575,15 @@
 				B16749941BEB462D00650742 /* SKLocation.m in Sources */,
 				B1404F761BCA0C3000078EE9 /* main.m in Sources */,
 				B16B4B901BF84A9100377BF0 /* SKHeWeatherCondition.m in Sources */,
+				B1B1AD681C032CEE00CA3E65 /* iCocosSettingCell.m in Sources */,
 				B1654A6B1BF76F9600A0B4B1 /* SKChromatography.m in Sources */,
 				B1ECABF31BF953FF00A8BDAA /* LocationManager.swift in Sources */,
 				B16B4BB71BF8506900377BF0 /* SKAPIStoreTodayModel.m in Sources */,
 				B16B4BC61BF866D300377BF0 /* WmHttpRequestManager.m in Sources */,
 				B16B4B8F1BF84A9100377BF0 /* SKHeWear.m in Sources */,
+				B1B1AD501C032CEE00CA3E65 /* iCocosSettingGroup.m in Sources */,
 				B1ECABF61BF953FF00A8BDAA /* CFCityPickerVC+Main.swift in Sources */,
+				B10D755B1C036A1400499B20 /* EggsViewController.m in Sources */,
 				B1ECAC181BFA009700A8BDAA /* HMFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1178,6 +1607,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B10D756E1C037BDA00499B20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B10D75611C037BDA00499B20 /* WearTodayExtension */;
+			targetProxy = B10D756D1C037BDA00499B20 /* PBXContainerItemProxy */;
+		};
+		B10D757F1C037C6800499B20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B10D75771C037C6800499B20 /* WearSpotlightExtension */;
+			targetProxy = B10D757E1C037C6800499B20 /* PBXContainerItemProxy */;
+		};
 		B1404F8C1BCA0C3000078EE9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B1404F701BCA0C3000078EE9 /* Wear */;
@@ -1191,6 +1630,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B10D75691C037BDA00499B20 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B10D756A1C037BDA00499B20 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		B1404F821BCA0C3000078EE9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1202,6 +1649,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B10D75701C037BDA00499B20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = WearTodayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Kai-Sun.Wear.WearTodayExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B10D75711C037BDA00499B20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = WearTodayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Kai-Sun.Wear.WearTodayExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B10D75821C037C6800499B20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = WearSpotlightExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Kai-Sun.Wear.WearSpotlightExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B10D75831C037C6800499B20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = WearSpotlightExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Kai-Sun.Wear.WearSpotlightExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		B1404F9C1BCA0C3000078EE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1311,6 +1818,7 @@
 					"\"${PODS_ROOT}/Headers/Public/pop\"",
 				);
 				INFOPLIST_FILE = Wear/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1344,6 +1852,7 @@
 					"\"${PODS_ROOT}/Headers/Public/pop\"",
 				);
 				INFOPLIST_FILE = Wear/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1421,6 +1930,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B10D75721C037BDA00499B20 /* Build configuration list for PBXNativeTarget "WearTodayExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B10D75701C037BDA00499B20 /* Debug */,
+				B10D75711C037BDA00499B20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B10D75811C037C6800499B20 /* Build configuration list for PBXNativeTarget "WearSpotlightExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B10D75821C037C6800499B20 /* Debug */,
+				B10D75831C037C6800499B20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B1404F6C1BCA0C3000078EE9 /* Build configuration list for PBXProject "Wear" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

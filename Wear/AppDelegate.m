@@ -14,6 +14,8 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
+#import <Bugly/CrashReporter.h>
+
 @interface AppDelegate ()<WeiboSDKDelegate>
 
 @end
@@ -22,6 +24,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[CrashReporter sharedInstance] installWithAppId:@"900013005"];
+    
     // Override point for customization after application launch.
     [self init3rdShare];
     

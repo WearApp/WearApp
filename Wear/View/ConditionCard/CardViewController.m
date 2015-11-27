@@ -13,10 +13,7 @@
 
 @end
 
-@implementation CardViewController {
-    BOOL _moving;
-    CGFloat _movingStartY;
-}
+@implementation CardViewController
 
 - (instancetype)init
 {
@@ -33,10 +30,26 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.popupController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    
+    self.popupController.navigationBar.barStyle = UIBarStyleBlack;
+    self.popupController.navigationBar.translucent = NO;
+    [self.popupController.navigationBar setShadowImage:[UIImage new]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [self.popupController.navigationBar setTranslucent:NO];
+//    [self.popupController.navigationBar setBarStyle:UIBaselineAdjustmentNone];
+//    [self.popupController.navigationBar setShadowImage:[UIImage imageNamed:@"transparent"]];
+    
+    [self.view setBackgroundColor:self.popupController.navigationBar.barTintColor];
+    
     // Do any additional setup after loading the view from its nib.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

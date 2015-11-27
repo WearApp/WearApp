@@ -23,7 +23,7 @@
 
 - (void)didGetAccuracy:(CLLocationAccuracy)accuracy;
 - (void)didGetLocalCoordinate:(CLLocationCoordinate2D)coordinate;
-- (void)didGetLocalAreaID:(NSString *)areaid cityCode:(NSString *)cityCode districtCode:(NSString *)districtCode;
+- (void)didGetLocalAreaID:(NSString *)areaid cityName:(NSString *)cityName cityCode:(NSString *)cityCode districtCode:(NSString *)districtCode;
 - (void)didGetProvince:(NSString *)province city:(NSString *)city district:(NSString *)district;
 - (void)didGetAddress:(NSString *)formattedAddress;
 

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,28 +12,29 @@
             <rect key="frame" x="0.0" y="0.0" width="310" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="310" height="90"/>
+                <rect key="frame" x="0.0" y="0.0" width="310" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加城市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhJ-Ca-F18">
-                        <rect key="frame" x="121" y="34" width="68" height="21"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="mlI-wO-9NH">
+                        <rect key="frame" x="139" y="29" width="32" height="32"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="mlI-wO-9NH" secondAttribute="height" multiplier="1:1" id="Nri-Yu-VPz"/>
+                            <constraint firstAttribute="height" constant="32" id="ocL-PD-P9s"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="FhJ-Ca-F18" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pFJ-9p-9vB"/>
-                    <constraint firstItem="FhJ-Ca-F18" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rnp-Y9-hHI"/>
+                    <constraint firstItem="mlI-wO-9NH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Uud-W0-DlZ"/>
+                    <constraint firstItem="mlI-wO-9NH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gN0-8p-4H2"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
-            <connections>
-                <outlet property="titleLabel" destination="FhJ-Ca-F18" id="uks-7h-INC"/>
-            </connections>
             <point key="canvasLocation" x="320" y="375"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="addButton" width="32" height="32"/>
+    </resources>
 </document>
