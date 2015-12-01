@@ -16,5 +16,6 @@
 - (UIColor *)colorWithNumString:(NSString *)number;
 
 + (UIColor *)temperatureColorWithHue:(CGFloat)hue;
++ (UIColor *)temperatureColorWithHue:(CGFloat)hue alpha:(CGFloat)alpha;
 
 @end

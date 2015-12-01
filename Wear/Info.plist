@@ -94,6 +94,7 @@
 	<string>Wear需要根据您的地理位置给您提供穿衣建议。</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

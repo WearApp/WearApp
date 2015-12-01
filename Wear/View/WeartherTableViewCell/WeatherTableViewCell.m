@@ -8,6 +8,7 @@
 
 #import "WeatherTableViewCell.h"
 #import "SKChromatography.h"
+#import "SKAPIStoreWeatherModel.h"
 
 @implementation WeatherTableViewCell
 
@@ -42,9 +43,13 @@
     // Configure the view for the selected state
 }
 
+- (void)setWeatherModel:(SKAPIStoreWeatherModel *)weatherModel {
+    [self setBackgroundColor:[SKChromatography temperatureColorWithHue:270-([weatherModel.today.currentTemp substringWithRange:NSMakeRange(0, weatherModel.today.currentTemp.length-1)].floatValue+20)*4.8]];
+}
+
 - (void)setCityName:(NSString *)cityName conditionNum:(NSInteger)conditionNum temperatureHi:(NSInteger)hi temperatureLow:(NSInteger)low {
 //    NSLog(@"%f",270-(((float)(hi+low))/2+20)*0.60*8);
-    [self setBackgroundColor:[SKChromatography temperatureColorWithHue:270-(((float)(hi+low))/2+20)*0.60*8]];
+    [self setBackgroundColor:[SKChromatography temperatureColorWithHue:270-(((float)(hi+low))/2+20)*0.60*8 alpha:0.7f]];
 //    [self setBackgroundColor:[UIColor colorWithHue:80.0f/255.0f saturation:140.0f/255.0f brightness:160.0f/255.0f alpha:1]];
 //    [self setBackgroundColor:[UIColor colorWithHue:204.0f/359.0f saturation:42.0f/100.0f brightness:66.0f/100.0f alpha:1]];
     [self.cityLabel setText:cityName];

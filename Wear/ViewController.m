@@ -42,13 +42,12 @@
 #import "EmptyCell.h"
 #import <MGSwipeTableCell.h>
 #import <MGSwipeButton.h>
-//SWIFT_CLASS(CFCityPickerVC);
+
+#import <AFNetworking/AFNetworking.h>
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate, SKAMapLocationDelegate, LFindLocationViewControllerDelegete, CityListDelegate>
 
 @property (strong, nonatomic) HeaderView *headerView;
-
-@property (strong, nonatomic) NSMutableArray *guideCellArray;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -64,6 +63,8 @@
 @property (strong, nonatomic) NSMutableArray *shareIconList;
 @property (strong, nonatomic) NSMutableArray *shareTextList;
 
+@property (strong, nonatomic) NSDate *updateDate;
+
 @property (strong, nonatomic) NSMutableArray<MGSwipeButton *> *shareButtonList;
 
 @end
@@ -72,21 +73,85 @@
     CGFloat screenWidth, screenHeight;
 }
 
+#pragma mark - Background Fetch
+
+- (void)insertNewObjectForFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    if (self.updateDate != nil && [self compareDateWithUpdateTime:self.updateDate]) {
+        completionHandler(UIBackgroundFetchResultNoData);
+        return;
+    } else {
+    
+        NSLog(@"uibackgroundfetch");
+        [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+        
+        [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            
+            NSLog(@"wwwwwwwwwff");
+            switch (status) {
+                case AFNetworkReachabilityStatusNotReachable:{
+                    NSLog(@"无网络");
+                    completionHandler(UIBackgroundFetchResultFailed);
+                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+                    break;
+                }
+                case AFNetworkReachabilityStatusUnknown:{
+                    completionHandler(UIBackgroundFetchResultFailed);
+                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+                    break;
+                }
+                case AFNetworkReachabilityStatusReachableViaWiFi:{
+                    NSLog(@"WiFi网络");
+                    // Local Weather Refresh
+                    [[SKAMapLocation shareManager] setDelegate:self];
+                    [[SKAMapLocation shareManager] findCurrentLocation];
+                    // Refresh All City
+                    [self updateAllCityCell];
+                    completionHandler(UIBackgroundFetchResultNewData);
+                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+                    break;
+                }
+                case AFNetworkReachabilityStatusReachableViaWWAN:{
+                    NSLog(@"无线网络");
+                    completionHandler(UIBackgroundFetchResultNoData);
+                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+                    break;
+                }
+                default:
+                    break;
+            }
+        }];
+    }
+    
+//    NSLog(@"Update the tableview.");
+//    self.numberOfnewPosts = [self getRandomNumberBetween:0 to:4];
+//    NSLog(@"%d new fetched objects",self.numberOfnewPosts);
+//    for(int i = 0; i < self.numberOfnewPosts; i++){
+//        int addPost = [self getRandomNumberBetween:0 to:(int)([self.possibleTableData count]-1)];
+//        [self insertObject:[self.possibleTableData objectAtIndex:addPost]];
+//    }
+    /*
+     At the end of the fetch, invoke the completion handler.
+     */
+
+}
+
 #pragma mark - Refreshing
 
 - (void)setupSettingRefreshing {
     [self.tableView addBottomRefreshWithTarget:self action:@selector(bottomRefreshing)];
     
     [self.tableView.bottomRefresh setBackgroundColor:self.headerView.backgroundColor];
+    [self.tableView.bottomRefresh setAlpha:0.5];
     
     NSMutableAttributedString *str1 = [[NSMutableAttributedString alloc] initWithString:@"上拉打开设置"];
     NSMutableAttributedString *str2 = [[NSMutableAttributedString alloc] initWithString:@"上拉打开设置"];
     NSMutableAttributedString *str3 = [[NSMutableAttributedString alloc] initWithString:@"释放打开设置"];
     NSMutableAttributedString *str4 = [[NSMutableAttributedString alloc] initWithString:@"正在打开设置"];
-    [str1 addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, str1.length)];
-    [str2 addAttribute:NSForegroundColorAttributeName value:[UIColor purpleColor] range:NSMakeRange(0, str2.length)];
-    [str3 addAttribute:NSForegroundColorAttributeName value:[UIColor brownColor] range:NSMakeRange(0, str3.length)];
-    [str4 addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0, str4.length)];
+    [str1 addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, str1.length)];
+    [str2 addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, str2.length)];
+    [str3 addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, str3.length)];
+    [str4 addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, str4.length)];
     self.tableView.bottomRefresh.refreshTexts = @[str1, str2, str3, str4];
 }
 
@@ -118,7 +183,7 @@
 
     [self.tableView setParallaxHeaderView:self.headerView
                                      mode:VGParallaxHeaderModeFill
-                                   height:((float)[UIScreen mainScreen].bounds.size.height)/8.0*4];
+                                   height:((float)[UIScreen mainScreen].bounds.size.height)/8.0*3];
     
 //    UILabel *stickyLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 //    stickyLabel.backgroundColor = [UIColor colorWithRed:1 green:0.749 blue:0.976 alpha:1];
@@ -129,8 +194,8 @@
     
     self.headerView.userInteractionEnabled = YES;
     TapHeaderGestureRecognizer *tap = [[TapHeaderGestureRecognizer alloc] init];
+    [tap setColor:self.headerView.backgroundColor];
     [tap addTarget:self action:@selector(presentCardColor:)];
-    [tap setValue:self.headerView.backgroundColor forKey:@"color"];
     [self.headerView addGestureRecognizer:tap];
     
 //    [self.tableView.parallaxHeader setStickyView:stickyLabel
@@ -147,10 +212,12 @@
     
     if (color) {
         [popupController.navigationBar setBarTintColor:color];
+        [popupController.navigationBar setAlpha:1];
         [popupController.navigationBar setTintColor:[UIColor whiteColor]];
         [popupController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
     } else {
         [popupController.navigationBar setBarTintColor:[UIColor whiteColor]];
+        [popupController.navigationBar setAlpha:1];
         [popupController.navigationBar setTintColor:[UIColor blackColor]];
         [popupController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:NSForegroundColorAttributeName]];
     }
@@ -220,11 +287,16 @@
     [[SKAPIStoreWeatherManager sharedInstance] conditionRequestWithCityid:cityid successBlock:^(SKAPIStoreWeatherModel *model) {
         if (model.errorNumber!=0) {
             
+            self.updateDate = [NSDate date];
+            
             NSLog(@"refreshlocal");
             
             [model setUpdateTime:[NSDate date]];
             NSLog(@"%@", model);
             [headerView setCityName:cityName temperarute:model.today.currentTemp tempLow:model.today.tempLow tempHigh:model.today.tempHigh];
+            [((TapHeaderGestureRecognizer *)headerView.gestureRecognizers.firstObject) setColor:headerView.backgroundColor];
+            // todo: local weather card color doesn't change
+            NSLog(@"%@", (TapHeaderGestureRecognizer *)headerView.gestureRecognizers.firstObject);
             
             [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.cities.count inSection:0]] setBackgroundColor:headerView.backgroundColor];
             [self.tableView.bottomRefresh setBackgroundColor:self.headerView.backgroundColor];
@@ -272,6 +344,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"viewdidload");
+    
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"colorGauss"]]];
+    
+    [self.view.superview setBackgroundColor:[UIColor clearColor]];
+    [self.view setBackgroundColor:[UIColor clearColor]];
+    
     screenHeight = self.view.frame.size.height;
     screenWidth = self.view.frame.size.width;
     
@@ -299,12 +378,7 @@
         NSLog(@"已经不是第一次启动了");
         self.cities = [HMFileManager getObjectByFileName:@"cities"];
     }
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"guide"]){
-        self.guideCellArray = [NSMutableArray arrayWithObjects:@1, @2, @3, @4, @5, nil];
-    } else {
-        self.guideCellArray = nil;
-    }
-    
+
     
 //    [self wipeData];
 }
@@ -588,6 +662,7 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"EmptyCell" owner:self options:nil] lastObject];
         }
         cell.backgroundColor = self.headerView.backgroundColor;
+        [cell setAlpha:0.4f];
         UILongPressGestureRecognizer *emptyGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:nil action:nil];
         [cell addGestureRecognizer:emptyGesture];
         return cell;
@@ -663,6 +738,7 @@
         STPopupController *popupController = [[STPopupController alloc] initWithRootViewController:cityListVC];
         
         [popupController.navigationBar setBarTintColor:[tableView cellForRowAtIndexPath:indexPath].backgroundColor];
+        [popupController.navigationBar setAlpha:1];
         [popupController.navigationBar setTintColor:[UIColor whiteColor]];
         [popupController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
         [cityListVC.view setBackgroundColor:[tableView cellForRowAtIndexPath:indexPath].backgroundColor];
@@ -684,6 +760,7 @@
         STPopupController *popupController = [[STPopupController alloc] initWithRootViewController:cardVC];
         
         [popupController.navigationBar setBarTintColor:[tableView cellForRowAtIndexPath:indexPath].backgroundColor];
+        [popupController.navigationBar setAlpha:1];
         [popupController.navigationBar setTintColor:[UIColor whiteColor]];
         [popupController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
         [popupController setCornerRadius:10.0f];
@@ -857,6 +934,14 @@
 
 #pragma mark - Refresh City Model
 
+- (void)updateAllCityCell {
+    for (int i = 0; i<self.cities.count; ++i) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        [self refreshCell:[self.tableView cellForRowAtIndexPath:indexPath] withIndexPath:indexPath weatherModel:self.cities[i]];
+        NSLog(@"后台刷新%@的数据", self.cities[i].city);
+    }
+}
+
 - (void)updateItemAtIndexPath:(NSIndexPath *)indexPath withObject:(SKAPIStoreWeatherModel *)object {
     [self.tableView beginUpdates];
     if (object) {
@@ -869,6 +954,9 @@
 
 - (void)refreshCell:(WeatherTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath weatherModel:(SKAPIStoreWeatherModel *)oldModel {
     [[SKAPIStoreWeatherManager sharedInstance] conditionRequestWithCityid:[self getAreaidWithCityName:oldModel.city] successBlock:^(SKAPIStoreWeatherModel *model) {
+        
+        self.updateDate = [NSDate date];
+        
         if (model.errorNumber!=0) {
             [model setUpdateTime:[NSDate date]];
             NSLog(@"%@", model);

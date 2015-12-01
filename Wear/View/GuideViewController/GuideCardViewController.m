@@ -1,25 +1,27 @@
 //
-//  CardViewController.m
+//  GuideCardViewController.m
 //  Wear
 //
-//  Created by 孙恺 on 15/11/9.
+//  Created by 孙恺 on 15/11/28.
 //  Copyright © 2015年 sunkai. All rights reserved.
 //
 
-#import "CardViewController.h"
+#import "GuideCardViewController.h"
 #import <STPopup/STPopup.h>
 
-@interface CardViewController ()
+@interface GuideCardViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *cardBigLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descritpionLabel;
 
 @end
 
-@implementation CardViewController
+@implementation GuideCardViewController
 
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.title = @"View Controller";
-//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(nextBtnDidTap)];
+        self.title = @" ";
+        //        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(nextBtnDidTap)];
         
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         
@@ -39,17 +41,16 @@
     [self.popupController.navigationBar setShadowImage:[UIImage new]];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-//    [self.popupController.navigationBar setTranslucent:NO];
-//    [self.popupController.navigationBar setBarStyle:UIBaselineAdjustmentNone];
-//    [self.popupController.navigationBar setShadowImage:[UIImage imageNamed:@"transparent"]];
-    
-    [self.view setBackgroundColor:[self.popupController.navigationBar.barTintColor colorWithAlphaComponent:1]];
-    
-    // Do any additional setup after loading the view from its nib.
+- (void)setBigText:(NSString *)bigtext description:(NSString *)descriptionText {
+    [self.cardBigLabel setText:bigtext];
+    [self.descritpionLabel setText:descriptionText];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.view setBackgroundColor:self.popupController.navigationBar.barTintColor];
+    // Do any additional setup after loading the view from its nib.
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

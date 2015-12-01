@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Se3-Pj-EwV">
-                        <rect key="frame" x="16" y="8" width="128" height="32"/>
+                        <rect key="frame" x="24" y="8" width="128" height="32"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Se3-Pj-EwV" secondAttribute="height" multiplier="4:1" id="Ywe-ft-Ked"/>
@@ -27,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="－－℃ - －－℃" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PF-zE-o9H">
-                        <rect key="frame" x="136" y="8" width="128" height="32"/>
+                        <rect key="frame" x="128" y="8" width="128" height="32"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="4PF-zE-o9H" secondAttribute="height" multiplier="4:1" id="oE5-i4-JG3"/>
@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3jX-Cf-NqE">
-                        <rect key="frame" x="272" y="8" width="32" height="32"/>
+                        <rect key="frame" x="264" y="8" width="32" height="32"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="3jX-Cf-NqE" secondAttribute="height" multiplier="1:1" id="D8j-gw-FbC"/>
@@ -48,11 +48,11 @@
                 <animations/>
                 <constraints>
                     <constraint firstItem="4PF-zE-o9H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="8G8-c2-WCb"/>
-                    <constraint firstItem="Se3-Pj-EwV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="INl-b4-cVs"/>
+                    <constraint firstItem="Se3-Pj-EwV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="INl-b4-cVs"/>
                     <constraint firstItem="4PF-zE-o9H" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="OZD-c4-caC"/>
                     <constraint firstItem="Se3-Pj-EwV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="PJz-AP-ske"/>
                     <constraint firstItem="Se3-Pj-EwV" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="YTv-kG-V7T"/>
-                    <constraint firstItem="3jX-Cf-NqE" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-8" id="Zpa-OG-y8d"/>
+                    <constraint firstItem="3jX-Cf-NqE" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-16" id="Zpa-OG-y8d"/>
                     <constraint firstItem="3jX-Cf-NqE" firstAttribute="centerY" secondItem="4PF-zE-o9H" secondAttribute="centerY" id="cug-RD-2OI"/>
                     <constraint firstItem="3jX-Cf-NqE" firstAttribute="leading" secondItem="4PF-zE-o9H" secondAttribute="trailing" constant="8" id="mli-um-Wv3"/>
                 </constraints>

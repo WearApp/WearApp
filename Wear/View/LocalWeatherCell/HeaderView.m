@@ -29,11 +29,16 @@
     [self.temperatureLabel setText:[NSString stringWithFormat:@"%@", temperature]];
     [self.highLowTemperatureLabel setText:[NSString stringWithFormat:@"%@ - %@", tempLow, tempHigh]];
     if (![cityName isEqualToString:@"--"]) {
-        [self setBackgroundColor:[SKChromatography temperatureColorWithHue:270-((float)[temperature substringWithRange:NSMakeRange(0, temperature.length-1)].floatValue+20)*0.60*8]];
+        [self setBackgroundColor:[SKChromatography temperatureColorWithHue:270-((float)[temperature substringWithRange:NSMakeRange(0, temperature.length-1)].floatValue+20)*0.60*8 alpha:0.7f]];
     } else {
-        [self setBackgroundColor:[SKChromatography temperatureColorWithHue:270-20*0.60*8]];
+        [self setBackgroundColor:[SKChromatography temperatureColorWithHue:270-20*0.60*8 alpha:0.7f]];
     }
     
+}
+
+- (void)setCityLabelTextSize {
+    self.cityNameLabel.adjustsFontSizeToFitWidth = YES;
+    self.temperatureLabel.adjustsFontSizeToFitWidth = YES;
 }
 
 @end

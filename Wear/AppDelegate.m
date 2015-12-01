@@ -22,8 +22,26 @@
 
 @implementation AppDelegate
 
+#pragma mark - Background Fetch Callback
+
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    ViewController *mainVC = (ViewController *)self.window.rootViewController;
+    
+    NSLog(@"applicationperformfetchwithcompletion");
+    
+    if ([mainVC isKindOfClass:[ViewController class]]) {
+        [(ViewController *)mainVC insertNewObjectForFetchWithCompletionHandler:completionHandler];
+    } else {
+        NSLog(@"Not the right class %@.", [ViewController class]);
+        completionHandler(UIBackgroundFetchResultFailed);
+    }
+}
+
+#pragma mark - Lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:7200];
+    
     [[CrashReporter sharedInstance] installWithAppId:@"900013005"];
     
     // Override point for customization after application launch.
@@ -31,7 +49,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [self.window setBackgroundColor:[UIColor redColor]];
     
     ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:[NSBundle mainBundle]];
     [self.window setRootViewController:vc];

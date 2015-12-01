@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
+- (void)insertNewObjectForFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler; 
 
 @end
 

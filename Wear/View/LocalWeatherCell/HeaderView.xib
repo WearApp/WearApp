@@ -24,11 +24,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="－－℃" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jN-Ow-xcu">
-                    <rect key="frame" x="16" y="250" width="300" height="100"/>
+                    <rect key="frame" x="16" y="250" width="446" height="100"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="ITn-B8-yT0"/>
-                        <constraint firstAttribute="width" secondItem="7jN-Ow-xcu" secondAttribute="height" multiplier="3:1" id="QEQ-kJ-Thy"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="80"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,7 +47,7 @@
                         <constraint firstAttribute="width" secondItem="mhm-Zc-LZw" secondAttribute="height" multiplier="1:1" id="rHU-Yl-7Fh"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unbrella" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hk-U4-w1W">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="穿衣建议" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hk-U4-w1W">
                     <rect key="frame" x="484" y="554" width="100" height="24"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -79,6 +78,7 @@
                 <constraint firstItem="mhm-Zc-LZw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aUC-pa-xEU"/>
                 <constraint firstAttribute="centerY" secondItem="7jN-Ow-xcu" secondAttribute="centerY" id="agy-c6-P8s"/>
                 <constraint firstItem="3Hk-U4-w1W" firstAttribute="height" secondItem="OY7-Fh-vvD" secondAttribute="height" id="cKM-C9-XMl"/>
+                <constraint firstItem="ZRl-NS-Qv4" firstAttribute="leading" secondItem="7jN-Ow-xcu" secondAttribute="trailing" constant="22" id="dD9-sJ-dmO"/>
                 <constraint firstItem="3Hk-U4-w1W" firstAttribute="width" secondItem="ZRl-NS-Qv4" secondAttribute="width" id="hdA-Xb-jM5"/>
                 <constraint firstAttribute="bottom" secondItem="3Hk-U4-w1W" secondAttribute="bottom" constant="22" id="kqX-ZL-NGH"/>
                 <constraint firstAttribute="trailing" secondItem="ZRl-NS-Qv4" secondAttribute="trailing" constant="16" id="pCT-fb-lpR"/>

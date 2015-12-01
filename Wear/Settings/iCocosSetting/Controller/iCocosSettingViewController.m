@@ -11,6 +11,8 @@
 #import "iCocosPushNoticeViewController.h"
 #import "UIScrollView+VORefresh.h"
 
+#import "GuideViewController.h"
+
 @interface iCocosSettingViewController ()
 @end
 
@@ -130,6 +132,10 @@
     
     // 2.4.查看消息
     iCocosSettingItem *msg = [iCocosSettingItem itemWithIcon:@"MoreMessage" title:@"查看消息" type:iCocosSettingItemTypeArrow];
+    msg.operation = ^{
+        GuideViewController *guideVC = [[GuideViewController alloc] init];
+        [self presentViewController:guideVC animated:YES completion:nil];
+    };
     
     // 2.5.产品推荐
     iCocosSettingItem *product = [iCocosSettingItem itemWithIcon:@"MoreNetease" title:@"产品推荐" type:iCocosSettingItemTypeArrow];

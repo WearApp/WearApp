@@ -14,4 +14,6 @@
 
 - (void)setCityName:(NSString *)cityName temperarute:(NSString *)temperature tempLow:(NSString *)tempLow tempHigh:(NSString *)tempHigh;
 
+- (void)setCityLabelTextSize;
+
 @end

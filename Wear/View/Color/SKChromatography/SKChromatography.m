@@ -149,9 +149,14 @@
     return self.color;
 }
 
++ (UIColor *)temperatureColorWithHue:(CGFloat)hue alpha:(CGFloat)alpha {
+    //    NSLog(@"%@", [UIColor colorWithHue:hue saturation:42.0/255.0f brightness:66.0/255.0f alpha:1]);
+    return [UIColor colorWithHue:hue/359.0f saturation:62.0/100.0f brightness:76.0/100.0f alpha:alpha];
+}
+
 + (UIColor *)temperatureColorWithHue:(CGFloat)hue {
-    NSLog(@"%@", [UIColor colorWithHue:hue saturation:42.0/255.0f brightness:66.0/255.0f alpha:1]);
-    return [UIColor colorWithHue:hue/359.0f saturation:62.0/100.0f brightness:76.0/100.0f alpha:1];
+//    NSLog(@"%@", [UIColor colorWithHue:hue saturation:42.0/255.0f brightness:66.0/255.0f alpha:1]);
+    return [UIColor colorWithHue:hue/359.0f saturation:62.0/100.0f brightness:76.0/100.0f alpha:1.0f];
 }
 
 @end

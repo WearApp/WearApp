@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0F60E98B29FE5EB49CBEC816 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4630EE586112E69E6EAAB7 /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		B1098BB51C08933200530A32 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1098BB31C08933200530A32 /* GuideViewController.m */; };
+		B1098BB61C08933200530A32 /* GuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1098BB41C08933200530A32 /* GuideViewController.xib */; };
+		B1098BBA1C09662400530A32 /* GuideCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1098BB81C09662400530A32 /* GuideCardViewController.m */; };
+		B1098BBB1C09662400530A32 /* GuideCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1098BB91C09662400530A32 /* GuideCardViewController.xib */; };
 		B10C2FE41C00AD77003C5EC9 /* YALSunnyRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B10C2FE21C00AD77003C5EC9 /* YALSunnyRefreshControl.m */; };
 		B10C2FE51C00AD77003C5EC9 /* YALSunnyRefreshControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10C2FE31C00AD77003C5EC9 /* YALSunnyRefreshControl.xib */; };
 		B10C303C1C016727003C5EC9 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10C30101C016727003C5EC9 /* TencentOpenAPI.framework */; };
@@ -205,6 +209,12 @@
 
 /* Begin PBXFileReference section */
 		5A4630EE586112E69E6EAAB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1098BB21C08933200530A32 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		B1098BB31C08933200530A32 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		B1098BB41C08933200530A32 /* GuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideViewController.xib; sourceTree = "<group>"; };
+		B1098BB71C09662400530A32 /* GuideCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideCardViewController.h; sourceTree = "<group>"; };
+		B1098BB81C09662400530A32 /* GuideCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideCardViewController.m; sourceTree = "<group>"; };
+		B1098BB91C09662400530A32 /* GuideCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideCardViewController.xib; sourceTree = "<group>"; };
 		B10C2FE11C00AD77003C5EC9 /* YALSunnyRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALSunnyRefreshControl.h; sourceTree = "<group>"; };
 		B10C2FE21C00AD77003C5EC9 /* YALSunnyRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALSunnyRefreshControl.m; sourceTree = "<group>"; };
 		B10C2FE31C00AD77003C5EC9 /* YALSunnyRefreshControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YALSunnyRefreshControl.xib; sourceTree = "<group>"; };
@@ -510,6 +520,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B1098BB11C08931600530A32 /* GuideViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B1098BB21C08933200530A32 /* GuideViewController.h */,
+				B1098BB31C08933200530A32 /* GuideViewController.m */,
+				B1098BB41C08933200530A32 /* GuideViewController.xib */,
+				B1098BB71C09662400530A32 /* GuideCardViewController.h */,
+				B1098BB81C09662400530A32 /* GuideCardViewController.m */,
+				B1098BB91C09662400530A32 /* GuideCardViewController.xib */,
+			);
+			name = GuideViewController;
+			path = View/GuideViewController;
+			sourceTree = "<group>";
+		};
 		B10C2FE01C00AD77003C5EC9 /* YALSunnyRefreshControll */ = {
 			isa = PBXGroup;
 			children = (
@@ -761,6 +785,7 @@
 		B1404FAE1BCA4B7E00078EE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B1098BB11C08931600530A32 /* GuideViewController */,
 				B1BB8F581C087B18008814A4 /* FirstRunCell */,
 				B10D75E41C04988200499B20 /* CityList */,
 				B199C28A1C06D8B90048F9B9 /* MLSearchBar */,
@@ -1378,12 +1403,14 @@
 				B1ECABF91BF953FF00A8BDAA /* img.bundle in Resources */,
 				B199C27E1C06BEBF0048F9B9 /* CitySelectTableViewController.xib in Resources */,
 				B199C2781C06BAF10048F9B9 /* provincedictionary.plist in Resources */,
+				B1098BB61C08933200530A32 /* GuideViewController.xib in Resources */,
 				B199C2861C06C75D0048F9B9 /* provinceCodeList.plist in Resources */,
 				B10C2FE51C00AD77003C5EC9 /* YALSunnyRefreshControl.xib in Resources */,
 				B1ECAC1D1BFA3A5200A8BDAA /* cityName.plist in Resources */,
 				B10C30481C016728003C5EC9 /* logo.jpg in Resources */,
 				B1ECAC1F1BFA471200A8BDAA /* down.png in Resources */,
 				B10D75EA1C04988200499B20 /* check.png in Resources */,
+				B1098BBB1C09662400530A32 /* GuideCardViewController.xib in Resources */,
 				B10C30441C016728003C5EC9 /* icon_share_qq@2x.png in Resources */,
 				B1A68C871C06EEF000BCD01E /* HotCityTableViewCell.xib in Resources */,
 				B1ECABFF1BF953FF00A8BDAA /* HeaderItemView.xib in Resources */,
@@ -1566,6 +1593,7 @@
 				B10C304C1C016728003C5EC9 /* XMShareWeiboUtil.m in Sources */,
 				B1654A531BF76F2D00A0B4B1 /* WeatherTableViewCell.m in Sources */,
 				B1ECAC0E1BF9542E00A8BDAA /* PooSearchBar.m in Sources */,
+				B1098BBA1C09662400530A32 /* GuideCardViewController.m in Sources */,
 				B10C2FE41C00AD77003C5EC9 /* YALSunnyRefreshControl.m in Sources */,
 				B1ECABF81BF953FF00A8BDAA /* CityModel.swift in Sources */,
 				B1404F791BCA0C3000078EE9 /* AppDelegate.m in Sources */,
@@ -1576,6 +1604,7 @@
 				B1404F761BCA0C3000078EE9 /* main.m in Sources */,
 				B16B4B901BF84A9100377BF0 /* SKHeWeatherCondition.m in Sources */,
 				B1B1AD681C032CEE00CA3E65 /* iCocosSettingCell.m in Sources */,
+				B1098BB51C08933200530A32 /* GuideViewController.m in Sources */,
 				B1654A6B1BF76F9600A0B4B1 /* SKChromatography.m in Sources */,
 				B1ECABF31BF953FF00A8BDAA /* LocationManager.swift in Sources */,
 				B16B4BB71BF8506900377BF0 /* SKAPIStoreTodayModel.m in Sources */,

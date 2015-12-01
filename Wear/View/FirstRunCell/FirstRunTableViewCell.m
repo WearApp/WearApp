@@ -24,6 +24,9 @@
 }
 
 - (void)setLeftText:(NSString *)leftText rightImage:(UIImage *)image {
+    self.leftImageView.contentMode=  UIViewContentModeScaleAspectFit;
+    self.rightImageView.contentMode=  UIViewContentModeScaleAspectFit;
+    
     [self.leftLabel setText:leftText];
     [self.rightImageView setImage:image];
     
@@ -36,6 +39,9 @@
 }
 
 - (void)setRightText:(NSString *)rightText leftImage:(UIImage *)image {
+    self.leftImageView.contentMode=  UIViewContentModeScaleAspectFit;
+    self.rightImageView.contentMode=  UIViewContentModeScaleAspectFit;
+    
     [self.rightLabel setText:rightText];
     [self.leftImageView setImage:image];
     
