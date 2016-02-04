@@ -146,6 +146,7 @@
         
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
             [_locationManager requestAlwaysAuthorization];
+            _locationManager.allowsBackgroundLocationUpdates = YES;
         }
     }
     return self;

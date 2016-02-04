@@ -24,4 +24,16 @@
      };
 }
 
++ (NSValueTransformer *)todayJSONTransformer {
+    return [MTLJSONAdapter dictionaryTransformerWithModelClass: SKAPIStoreTodayModel.class];
+}
+
++ (NSValueTransformer *)forecastJSONTransformer {
+    return [MTLJSONAdapter arrayTransformerWithModelClass: SKAPIStoreOtherDayModel.class];
+}
+
++ (NSValueTransformer *)historyJSONTransformer {
+    return [MTLJSONAdapter arrayTransformerWithModelClass: SKAPIStoreOtherDayModel.class];
+}
+
 @end

@@ -49,7 +49,7 @@ NSString * const VORingProgressTextAnimationKey = @"VORingProgressTextAnimationK
 		self.lineWidth   = diameter / 10;
 		self.lineColor   = lineColor;
 		self.lineBgColor = lineBgColor;
-		self.centerText  = @"V";
+		self.centerText  = @"";
 		self.bounds      = CGRectMake(0, 0, diameter, diameter);
 		self.center      = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
 		[self setupRingAnimationLayer];

@@ -9,10 +9,14 @@
 #import "WeatherTableViewCell.h"
 #import "SKChromatography.h"
 #import "SKAPIStoreWeatherModel.h"
+#import "SKWear.h"
 
 @implementation WeatherTableViewCell
 
 - (void)awakeFromNib {
+    
+    [self.wearIconImageView setContentMode:UIViewContentModeScaleAspectFit];
+    
 //    [self activityIndicator];
     // Initialization code
 }
@@ -44,17 +48,20 @@
 }
 
 - (void)setWeatherModel:(SKAPIStoreWeatherModel *)weatherModel {
-    [self setBackgroundColor:[SKChromatography temperatureColorWithHue:270-([weatherModel.today.currentTemp substringWithRange:NSMakeRange(0, weatherModel.today.currentTemp.length-1)].floatValue+20)*4.8]];
+    NSInteger temperatureLow = [weatherModel.today.tempLow substringWithRange:NSMakeRange(0, weatherModel.today.tempLow.length-1)].integerValue;
+    NSInteger temperatuteHi = [weatherModel.today.tempHigh substringWithRange:NSMakeRange(0, weatherModel.today.tempHigh.length-1)].integerValue;
+    
+    [self setBackgroundColor:[SKChromatography temperatureColorWithHue:340-([weatherModel.today.currentTemp substringWithRange:NSMakeRange(0, weatherModel.today.currentTemp.length-1)].floatValue+10)*8.8 alpha:0.7f]];
+    [self.cityLabel setText:weatherModel.city];
+    [self.temperatureLabel setText:[NSString stringWithFormat:@"%@ - %@ %@", weatherModel.today.tempLow, weatherModel.today.tempHigh, weatherModel.today.condition]];
+    [self.wearIconImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"wear%li",[SKWear wearIndexWithTemperatureHigh:temperatuteHi temperatureLow:temperatureLow]]]];
 }
 
 - (void)setCityName:(NSString *)cityName conditionNum:(NSInteger)conditionNum temperatureHi:(NSInteger)hi temperatureLow:(NSInteger)low {
-//    NSLog(@"%f",270-(((float)(hi+low))/2+20)*0.60*8);
-    [self setBackgroundColor:[SKChromatography temperatureColorWithHue:270-(((float)(hi+low))/2+20)*0.60*8 alpha:0.7f]];
-//    [self setBackgroundColor:[UIColor colorWithHue:80.0f/255.0f saturation:140.0f/255.0f brightness:160.0f/255.0f alpha:1]];
-//    [self setBackgroundColor:[UIColor colorWithHue:204.0f/359.0f saturation:42.0f/100.0f brightness:66.0f/100.0f alpha:1]];
+    [self setBackgroundColor:[SKChromatography temperatureColorWithHue:340-((float)(hi+low)/2+10)*8.8 alpha:0.7f]];
     [self.cityLabel setText:cityName];
     [self.temperatureLabel setText:[NSString stringWithFormat:@"%li℃-%li℃", low, hi]];
-    [self.conditionImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"condition%li",(long)conditionNum]]];
+//    [self.conditionImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"condition%li",(long)conditionNum]]];
     
 }
 

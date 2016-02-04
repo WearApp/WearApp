@@ -32,9 +32,13 @@
     
     self.locationManager = [[AMapLocationManager alloc] init];
     
+//    self.locationManager.allowsBackgroundLocationUpdates = YES;
+    // !!!: Turn off background fetch.
+    
     [self.locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
     [self.locationManager setPausesLocationUpdatesAutomatically:NO];
-    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+//    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+    // !!!: Turn allows background location updates
     
     [self initCompleteBlock];
 }
@@ -60,9 +64,10 @@
             wSelf.locatedSuccess = YES;
             if (regeocode)
             {
+                NSLog(@"%@", regeocode.description);
                 [wSelf.delegate didGetAddress:regeocode.formattedAddress];
                 [wSelf.delegate didGetLocalCoordinate:location.coordinate];
-                [wSelf.delegate didGetLocalAreaID:[wSelf getAreaidWithCityName:regeocode.city] cityName:regeocode.city cityCode:regeocode.citycode districtCode:regeocode.adcode];
+                [wSelf.delegate didGetLocalAreaID:(([regeocode.province isEqualToString:@"天津市"]||[regeocode.province isEqualToString:@"重庆市"]||[regeocode.province isEqualToString:@"北京市"]||[regeocode.province isEqualToString:@"上海市"])?[wSelf getAreaidWithCityName:regeocode.province]:[wSelf getAreaidWithCityName:regeocode.city]) cityName:regeocode.city cityCode:regeocode.citycode districtCode:regeocode.adcode];
                 [wSelf.delegate didGetProvince:regeocode.province city:regeocode.city district:regeocode.district];
                 [wSelf.delegate didGetAccuracy:location.horizontalAccuracy];
                 

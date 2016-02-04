@@ -26,4 +26,8 @@
              };
 }
 
++ (NSValueTransformer *)indexJSONTransformer {
+    return [MTLJSONAdapter arrayTransformerWithModelClass: SKAPIStoreIndexModel.class];
+}
+
 @end

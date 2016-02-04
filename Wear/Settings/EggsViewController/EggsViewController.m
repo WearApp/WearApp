@@ -29,6 +29,7 @@
     [str3 addAttribute:NSForegroundColorAttributeName value:[UIColor brownColor] range:NSMakeRange(0, str3.length)];
     [str4 addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0, str4.length)];
     self.tableView.topRefresh.refreshTexts = @[str1, str2, str3, str4];
+    [self.tableView.topRefresh setBackgroundColor:[UIColor clearColor]];
 }
 
 #pragma mark - Refreshing
@@ -41,6 +42,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backgroundGauss"]]];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -55,6 +58,25 @@
 
 #pragma mark - tableview
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
+    
+    switch (indexPath.row) {
+        case 2:
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://blog.talisk.cn"]];
+            break;
+        case 3:
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://buhuan.github.io"]];
+            break;
+        case 6:
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://wearapp.github.io"]];
+            break;
+            
+        default:
+            break;
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return self.view.frame.size.height/8.0f;
 }
@@ -65,12 +87,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] init];
-    if (indexPath.row==4) {
-        [cell.textLabel setText:@"感谢设计师梁晓怡女士"];
-        cell.textLabel.textColor = [UIColor whiteColor];
+    
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
+    
+    switch (indexPath.row) {
+        case 1:
+            [cell.textLabel setText:@"你找到了彩蛋！"];
+            break;
+        case 2:
+            [cell.textLabel setText:@"开发者的博客：talisk"];
+            break;
+        case 3:
+            [cell.textLabel setText:@"设计师的博客：buhuan"];
+            break;
+        case 5:
+            [cell.textLabel setText:@"欢迎访问项目主页："];
+            break;
+        case 6:
+            [cell.textLabel setText:@"点击访问：http://wearapp.github.io/"];
+            break;
+            
+        default:
+            break;
     }
-    cell.backgroundColor = [UIColor redColor];
-    [cell setBackgroundColor:[SKChromatography temperatureColorWithHue:255-(indexPath.row+1)*30]];
+    
+    [cell setBackgroundColor:[SKChromatography temperatureColorWithHue:255-(indexPath.row+1)*30 alpha:0.7]];
     return cell;
 }
 

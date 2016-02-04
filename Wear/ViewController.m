@@ -43,13 +43,20 @@
 #import <MGSwipeTableCell.h>
 #import <MGSwipeButton.h>
 
-#import <AFNetworking/AFNetworking.h>
+#import <AFDropdownNotification/AFDropdownNotification.h>
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, SKAMapLocationDelegate, LFindLocationViewControllerDelegete, CityListDelegate>
+#import <SDWebImage/UIImageView+WebCache.h>
+
+#import <AFNetworking/AFNetworking.h>
+#import "EggsViewController.h"
+
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, SKAMapLocationDelegate, LFindLocationViewControllerDelegete, CityListDelegate, AFDropdownNotificationDelegate>
 
 @property (strong, nonatomic) HeaderView *headerView;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) AFDropdownNotification *notification;
 
 @property (strong, nonatomic) NSMutableArray<SKAPIStoreWeatherModel *> *cities;
 @property (strong, nonatomic) NSUserDefaults *defaults;
@@ -75,79 +82,65 @@
 
 #pragma mark - Background Fetch
 
-- (void)insertNewObjectForFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    
-    if (self.updateDate != nil && [self compareDateWithUpdateTime:self.updateDate]) {
-        completionHandler(UIBackgroundFetchResultNoData);
-        return;
-    } else {
-    
-        NSLog(@"uibackgroundfetch");
-        [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-        
-        [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-            
-            NSLog(@"wwwwwwwwwff");
-            switch (status) {
-                case AFNetworkReachabilityStatusNotReachable:{
-                    NSLog(@"无网络");
-                    completionHandler(UIBackgroundFetchResultFailed);
-                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
-                    break;
-                }
-                case AFNetworkReachabilityStatusUnknown:{
-                    completionHandler(UIBackgroundFetchResultFailed);
-                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
-                    break;
-                }
-                case AFNetworkReachabilityStatusReachableViaWiFi:{
-                    NSLog(@"WiFi网络");
-                    // Local Weather Refresh
-                    [[SKAMapLocation shareManager] setDelegate:self];
-                    [[SKAMapLocation shareManager] findCurrentLocation];
-                    // Refresh All City
-                    [self updateAllCityCell];
-                    completionHandler(UIBackgroundFetchResultNewData);
-                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
-                    break;
-                }
-                case AFNetworkReachabilityStatusReachableViaWWAN:{
-                    NSLog(@"无线网络");
-                    completionHandler(UIBackgroundFetchResultNoData);
-                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
-                    break;
-                }
-                default:
-                    break;
-            }
-        }];
-    }
-    
-//    NSLog(@"Update the tableview.");
-//    self.numberOfnewPosts = [self getRandomNumberBetween:0 to:4];
-//    NSLog(@"%d new fetched objects",self.numberOfnewPosts);
-//    for(int i = 0; i < self.numberOfnewPosts; i++){
-//        int addPost = [self getRandomNumberBetween:0 to:(int)([self.possibleTableData count]-1)];
-//        [self insertObject:[self.possibleTableData objectAtIndex:addPost]];
+//- (void)insertNewObjectForFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+//    
+//    if (self.updateDate != nil && [self compareDateWithUpdateTime:self.updateDate]) {
+//        completionHandler(UIBackgroundFetchResultNoData);
+//        return;
+//    } else {
+//    
+//        NSLog(@"uibackgroundfetch");
+//        [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+//        
+//        [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+//            switch (status) {
+//                case AFNetworkReachabilityStatusNotReachable:{
+//                    NSLog(@"无网络");
+//                    completionHandler(UIBackgroundFetchResultFailed);
+//                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+//                    break;
+//                }
+//                case AFNetworkReachabilityStatusUnknown:{
+//                    completionHandler(UIBackgroundFetchResultFailed);
+//                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+//                    break;
+//                }
+//                case AFNetworkReachabilityStatusReachableViaWiFi:{
+//                    NSLog(@"WiFi网络");
+//                    // Local Weather Refresh
+//                    [[SKAMapLocation shareManager] setDelegate:self];
+//                    [[SKAMapLocation shareManager] findCurrentLocation];
+//                    // Refresh All City
+//                    [self updateAllCityCell];
+//                    completionHandler(UIBackgroundFetchResultNewData);
+//                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+//                    break;
+//                }
+//                case AFNetworkReachabilityStatusReachableViaWWAN:{
+//                    NSLog(@"无线网络");
+//                    completionHandler(UIBackgroundFetchResultNoData);
+//                    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+//                    break;
+//                }
+//                default:
+//                    break;
+//            }
+//        }];
 //    }
-    /*
-     At the end of the fetch, invoke the completion handler.
-     */
-
-}
+//}
 
 #pragma mark - Refreshing
 
 - (void)setupSettingRefreshing {
     [self.tableView addBottomRefreshWithTarget:self action:@selector(bottomRefreshing)];
     
-    [self.tableView.bottomRefresh setBackgroundColor:self.headerView.backgroundColor];
-    [self.tableView.bottomRefresh setAlpha:0.5];
+    [self.tableView.bottomRefresh setBackgroundColor:[UIColor clearColor]];
+//    [self.tableView.bottomRefresh setAlpha:0.5];
     
-    NSMutableAttributedString *str1 = [[NSMutableAttributedString alloc] initWithString:@"上拉打开设置"];
-    NSMutableAttributedString *str2 = [[NSMutableAttributedString alloc] initWithString:@"上拉打开设置"];
-    NSMutableAttributedString *str3 = [[NSMutableAttributedString alloc] initWithString:@"释放打开设置"];
-    NSMutableAttributedString *str4 = [[NSMutableAttributedString alloc] initWithString:@"正在打开设置"];
+    NSMutableAttributedString *str1 = [[NSMutableAttributedString alloc] initWithString:@""];
+    NSMutableAttributedString *str2 = [[NSMutableAttributedString alloc] initWithString:@""];
+    NSMutableAttributedString *str3 = [[NSMutableAttributedString alloc] initWithString:@""];
+    NSMutableAttributedString *str4 = [[NSMutableAttributedString alloc] initWithString:@""];
     [str1 addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, str1.length)];
     [str2 addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, str2.length)];
     [str3 addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, str3.length)];
@@ -158,14 +151,17 @@
 - (void)bottomRefreshing{
     NSLog(@"setting");
     
-    iCocosSettingViewController *settingVC = [[iCocosSettingViewController alloc] init];
-//    UINavigationController *naviVC = [[UINavigationController alloc] initWithRootViewController:settingVC];
-    
-    UITabBarController *tabbarVC = [[UITabBarController alloc] init];
-    [tabbarVC addChildViewController:settingVC];
-    
-    [self presentViewController:tabbarVC animated:YES completion:nil];
+    EggsViewController *eggsVC = [[EggsViewController alloc] init];
+    [self presentViewController:eggsVC animated:YES completion:nil];
     [self.tableView.bottomRefresh endRefreshing];
+    
+//    iCocosSettingViewController *settingVC = [[iCocosSettingViewController alloc] init];
+//    
+//    UITabBarController *tabbarVC = [[UITabBarController alloc] init];
+//    [tabbarVC addChildViewController:settingVC];
+//    
+//    [self presentViewController:tabbarVC animated:YES completion:nil];
+//    [self.tableView.bottomRefresh endRefreshing];
 }
 
 #pragma mark - HeaderView
@@ -185,14 +181,9 @@
                                      mode:VGParallaxHeaderModeFill
                                    height:((float)[UIScreen mainScreen].bounds.size.height)/8.0*3];
     
-//    UILabel *stickyLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-//    stickyLabel.backgroundColor = [UIColor colorWithRed:1 green:0.749 blue:0.976 alpha:1];
-//    stickyLabel.textAlignment = NSTextAlignmentCenter;
-//    stickyLabel.text = @"Say hello to Sticky View :)";
-    
     self.tableView.parallaxHeader.stickyViewPosition = VGParallaxHeaderStickyViewPositionBottom;
     
-    self.headerView.userInteractionEnabled = YES;
+    self.headerView.userInteractionEnabled = NO;
     TapHeaderGestureRecognizer *tap = [[TapHeaderGestureRecognizer alloc] init];
     [tap setColor:self.headerView.backgroundColor];
     [tap addTarget:self action:@selector(presentCardColor:)];
@@ -202,10 +193,20 @@
 //                                      withHeight:40];
 }
 
+- (void)findLocalConditionCityName:(NSString *)cityname {
+    if (!cityname) {
+        [[SKAMapLocation shareManager] findCurrentLocation];
+    } else {
+        [self refreshLocalWeatherWithCityid:[self getAreaidWithCityName:cityname] cityName:nil headerView:self.headerView];
+    }
+}
+
 - (void)presentCardColor:(id)sender {
-    
+
     CardViewController *cardVC = [[CardViewController alloc] init];
     STPopupController *popupController = [[STPopupController alloc] initWithRootViewController:cardVC];
+    
+    [cardVC setWeather:self.headerView.weather];
     
     TapHeaderGestureRecognizer *tap = (TapHeaderGestureRecognizer *)sender;
     UIColor *color = [tap valueForKey:@"color"];
@@ -235,8 +236,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.tableView shouldPositionParallaxHeader];
-    // Log Parallax Progress
-    //NSLog(@"Progress: %f", scrollView.parallaxHeader.progress);
 }
 
 #pragma mark - SKAmapLocationDelegate
@@ -252,16 +251,22 @@
 - (void)didGetLocalAreaID:(NSString *)areaid cityName:(NSString *)cityName cityCode:(NSString *)cityCode districtCode:(NSString *)districtCode {
     NSLog(@"%@,%@,%@", areaid, cityCode, districtCode);
     
+    if (!areaid) {
+        [self.headerView setCityName:@"不支持的城市" temperarute:0 tempLow:0 tempHigh:0];
+        return;
+    }
     
     if (![HMFileManager getObjectByFileName:areaid]) {
         [self.headerView setCityName:@"--" temperarute:0 tempLow:0 tempHigh:0];
         [self refreshLocalWeatherWithCityid:areaid cityName:cityName headerView:self.headerView];
     } else {
         SKAPIStoreWeatherModel *savedModel = [HMFileManager getObjectByFileName:areaid];
-        [self.headerView setCityName:savedModel.city temperarute:savedModel.today.currentTemp tempLow:savedModel.today.tempLow tempHigh:savedModel.today.tempHigh];
+//        [self.headerView setCityName:savedModel.city temperarute:savedModel.today.currentTemp tempLow:savedModel.today.tempLow tempHigh:savedModel.today.tempHigh];
+
+        [self.headerView setWeatherModel:savedModel];
         
         [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.cities.count inSection:0]] setBackgroundColor:self.headerView.backgroundColor];
-        [self.tableView.bottomRefresh setBackgroundColor:self.headerView.backgroundColor];
+//        [self.tableView.bottomRefresh setBackgroundColor:self.headerView.backgroundColor];
         
         if (![self compareDateWithUpdateTime:savedModel.updateTime]) {
             [self refreshLocalWeatherWithCityid:areaid cityName:cityName headerView:self.headerView];
@@ -279,6 +284,7 @@
 
 - (void)didFailLocationWithError:(NSError *)error {
     NSLog(@"%li:%@",(long)error.code, error.description);
+    [self popNotificationWithTitle:@"错误" subtitle:[NSString stringWithFormat:@"定位%@",error.userInfo[NSLocalizedDescriptionKey]] image:nil topButtonText:@"刷新" bottomButtonText:nil tapDismiss:NO];
 }
 
 #pragma mark - Local Weather
@@ -293,22 +299,28 @@
             
             [model setUpdateTime:[NSDate date]];
             NSLog(@"%@", model);
-            [headerView setCityName:cityName temperarute:model.today.currentTemp tempLow:model.today.tempLow tempHigh:model.today.tempHigh];
+
+            [headerView setWeatherModel:model];
             [((TapHeaderGestureRecognizer *)headerView.gestureRecognizers.firstObject) setColor:headerView.backgroundColor];
-            // todo: local weather card color doesn't change
+
             NSLog(@"%@", (TapHeaderGestureRecognizer *)headerView.gestureRecognizers.firstObject);
             
             [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.cities.count inSection:0]] setBackgroundColor:headerView.backgroundColor];
-            [self.tableView.bottomRefresh setBackgroundColor:self.headerView.backgroundColor];
+            
+            [self.headerView setUserInteractionEnabled:YES];
+//            [self.tableView.bottomRefresh setBackgroundColor:self.headerView.backgroundColor];
 //            NSLog(@"cell:%@", [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].description);
             
+            [HMFileManager removeFileByFileName:model.cityid];
             [HMFileManager saveObject:model byFileName:model.cityid];
         } else {
             NSLog(@"error:%@",model.errorNumber);
         }
     } failureBlock:^(NSError *error) {
         [headerView setBackgroundColor:[UIColor redColor]];
-        [headerView setCityName:@"获取失败" temperarute:0 tempLow:0 tempHigh:0];
+        [headerView setCityName:@"获取失败，点击重试" temperarute:0 tempLow:0 tempHigh:0];
+        [self popNotificationWithTitle:@"错误" subtitle:@"网络错误，点击刷新重试" image:nil topButtonText:@"刷新" bottomButtonText:nil tapDismiss:NO];
+        [self.headerView setUserInteractionEnabled:NO];
         NSLog(@"blooo:%@",error.description);
     }];
 
@@ -341,15 +353,44 @@
 
 #pragma mark - Lifecycle
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateAllCityCell];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"viewdidload");
+    _notification = [[AFDropdownNotification alloc] init];
+    _notification.notificationDelegate = self;
     
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"colorGauss"]]];
+//    [self wipeAllData];
+//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+    
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]){
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        NSLog(@"第一次启动");
+//        [self wipeAllData];
+        self.cities = [NSMutableArray array];
+    }else{
+        NSLog(@"已经不是第一次启动了");
+        self.cities = [[NSMutableArray alloc] init];
+        self.cities = [HMFileManager getObjectByFileName:@"cities"];
+    }
+//    [self wipeAllData];
+//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+    
+    
+    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    [self.tableView setBackgroundView:backgroundImageView];
+    [backgroundImageView sd_setImageWithURL:[NSURL URLWithString:@"http://wearapp.github.io/wearapp_background/default.png"] placeholderImage:[UIImage imageNamed:@"backgroundGauss"] options:SDWebImageContinueInBackground completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.tableView setBackgroundView:backgroundImageView];
+    }];
+    
     
     [self.view.superview setBackgroundColor:[UIColor clearColor]];
-    [self.view setBackgroundColor:[UIColor clearColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    
     
     screenHeight = self.view.frame.size.height;
     screenWidth = self.view.frame.size.width;
@@ -369,16 +410,6 @@
     [self tableViewSet];
     
     [self setupSettingRefreshing];
-    
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
-        NSLog(@"第一次启动");
-        self.cities = [NSMutableArray array];
-    }else{
-        NSLog(@"已经不是第一次启动了");
-        self.cities = [HMFileManager getObjectByFileName:@"cities"];
-    }
-
     
 //    [self wipeData];
 }
@@ -576,23 +607,26 @@
 
 #pragma mark - Share List
 
-- (NSArray *)getShareListArray {
+- (NSArray *)getShareListArrayWithIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *shareButtonList = [[NSMutableArray alloc] init];
     
     for (int i=0; i<self.shareTextList.count; ++i) {
         MGSwipeButton *button = [[MGSwipeButton alloc] init];
         button = [MGSwipeButton buttonWithTitle:self.shareTextList[i] icon:[UIImage imageNamed:self.shareIconList[i]] backgroundColor:[UIColor whiteColor] callback:^BOOL(MGSwipeTableCell *sender) {
+            SKAPIStoreWeatherModel *model = self.cities[indexPath.row];
+            
+            NSString *shareString = [NSString stringWithFormat:@"%@当前温度%@-%@，%@，",model.city, model.today.tempLow, model.today.tempLow, model.today.condition];
             
             if ([self.shareTextList[i] isEqualToString:@"wechat"]) {
-                [self shareToWeixinSessionWithTitle:@"省心天气" contentText:@"省心天气" shareURL:@"http://wearapp.github.io/"];
+                [self shareToWeixinSessionWithTitle:@"省心天气" contentText:shareString shareURL:@"http://wearapp.github.io/"];
             } else if ([self.shareTextList[i] isEqualToString:@"moment"]) {
-                [self shareToWeixinTimelineWithTitle:@"省心天气" contentText:@"省心天气" shareURL:@"http://wearapp.github.io/"];
+                [self shareToWeixinTimelineWithTitle:@"省心天气" contentText:shareString shareURL:@"http://wearapp.github.io/"];
             } else if ([self.shareTextList[i] isEqualToString:@"qq"]) {
-                [self shareToQQWithTitle:@"省心天气" contentText:@"省心天气" shareURL:@"http://wearapp.github.io/"];
+                [self shareToQQWithTitle:@"省心天气" contentText:shareString shareURL:@"http://wearapp.github.io/"];
             } else if ([self.shareTextList[i] isEqualToString:@"qzone"]) {
-                [self shareToQzoneWithTitle:@"省心天气" contentText:@"省心天气" shareURL:@"http://wearapp.github.io/"];
+                [self shareToQzoneWithTitle:@"省心天气" contentText:shareString shareURL:@"http://wearapp.github.io/"];
             } else {
-                [self shareToWeiboWithTitle:@"省心天气" contentText:@"省心天气" shareURL:@"http://wearapp.github.io/"];
+                [self shareToWeiboWithTitle:@"省心天气" contentText:shareString shareURL:@"http://wearapp.github.io/"];
             }
             return YES;
         }];
@@ -617,6 +651,13 @@
     self.shareIconList = [[NSMutableArray alloc] init];
     self.shareTextList = [[NSMutableArray alloc] init];
     
+    //    if(hadInstalledWeibo){
+    
+    [self.shareIconList addObject:@"icon_share_webo@2x"];
+    [self.shareTextList addObject:@"weibo"];
+    
+    //    }
+    
     if(hadInstalledWeixin){
         
         [self.shareIconList addObject:@"icon_share_wechat@2x"];
@@ -635,12 +676,7 @@
     
     //    }
     
-    //    if(hadInstalledWeibo){
     
-    [self.shareIconList addObject:@"icon_share_webo@2x"];
-    [self.shareTextList addObject:@"weibo"];
-    
-    //    }
     
 }
 
@@ -665,28 +701,17 @@
         [cell setAlpha:0.4f];
         UILongPressGestureRecognizer *emptyGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:nil action:nil];
         [cell addGestureRecognizer:emptyGesture];
+        [cell setUserInteractionEnabled:YES];
         return cell;
     } else {
         WeatherTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"WeatherTableViewCell" owner:self options:nil] lastObject];
         }
-
-        if (![HMFileManager getObjectByFileName:[self getAreaidWithCityName:self.cities[indexPath.row].city]]) {
-
-            [cell setCityName:@"--" conditionNum:0 temperatureHi:0 temperatureLow:0];
-            [self refreshCell:cell withIndexPath:indexPath weatherModel:self.cities[indexPath.row]];
-        } else {
-            SKAPIStoreWeatherModel *savedModel = [HMFileManager getObjectByFileName:[self getAreaidWithCityName:self.cities[indexPath.row].city]];
-            [cell setCityName:savedModel.city conditionNum:0 temperatureHi:[savedModel.today.tempHigh intValue] temperatureLow:[savedModel.today.tempLow intValue]];
-            
-            if (![self compareDateWithUpdateTime:savedModel.updateTime]) {
-                [self refreshCell:cell withIndexPath:indexPath weatherModel:self.cities[indexPath.row]];
-            }
-        }
         
+        [self refreshCell:cell withIndexPath:indexPath weatherModel:self.cities[indexPath.row]];
         
-        cell.leftButtons = [self getShareListArray];
+        cell.leftButtons = [self getShareListArrayWithIndexPath:indexPath];
         cell.leftSwipeSettings.transition = MGSwipeDirectionRightToLeft;
 
         cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"不再关注" backgroundColor:[UIColor redColor] callback:^BOOL(MGSwipeTableCell *sender) {
@@ -713,10 +738,6 @@
     }
 }
 
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [self deleteItemAtIndexPath:indexPath];
-//}
-
 - (void)animationFinished: (id) sender{
     NSLog(@"animationFinished !");
 }
@@ -734,6 +755,7 @@
 //        [self presentViewController:nav animated:YES completion:nil];
         
         CityListViewController *cityListVC = [[CityListViewController alloc] init];
+        
         cityListVC.delegete = self;
         STPopupController *popupController = [[STPopupController alloc] initWithRootViewController:cityListVC];
         
@@ -755,9 +777,18 @@
 //        ZHPickView *pickView = [[ZHPickView alloc] initPickviewWithPlistName:@"city" isHaveNavControler:YES];
 //        [pickView show];
     } else {
+        if ([[tableView cellForRowAtIndexPath:indexPath].backgroundColor isEqual:[UIColor redColor]]) {
+            [self popNotificationWithTitle:@"错误" subtitle:@"请点击刷新数据" image:[UIImage imageNamed:@"update"] topButtonText:@"刷新" bottomButtonText:@"取消" tapDismiss:NO];
+            return;
+        }
     
         CardViewController *cardVC = [[CardViewController alloc] init];
         STPopupController *popupController = [[STPopupController alloc] initWithRootViewController:cardVC];
+        
+        
+        // 模型传参
+        [cardVC setWeather:self.cities[indexPath.row]];
+        NSLog(@"%@,%@",self.cities[indexPath.row].city,self.cities[indexPath.row]);
         
         [popupController.navigationBar setBarTintColor:[tableView cellForRowAtIndexPath:indexPath].backgroundColor];
         [popupController.navigationBar setAlpha:1];
@@ -792,7 +823,10 @@
     
     for (SKAPIStoreWeatherModel *model in self.cities) {
         if ([cityName isEqualToString:model.city]) {
+            
             NSLog(@"已经添加%@", cityName);
+            [self popNotificationWithTitle:@"重复" subtitle:[NSString stringWithFormat:@"您已添加%@", cityName] image:nil topButtonText:nil bottomButtonText:@"好" tapDismiss:NO];
+            
             return;
         }
     }
@@ -800,11 +834,7 @@
     SKAPIStoreWeatherModel *model = [[SKAPIStoreWeatherModel alloc] init];
     model.city = cityName;
     
-    NSLog(@"111");
-    
     [self updateItemAtIndexPath:[NSIndexPath indexPathForRow:self.cities.count inSection:0] withObject:model];
-    
-    NSLog(@"111");
 }
 
 #pragma mark - LFindLocationViewControllerDelegete
@@ -918,6 +948,7 @@
  */
 - (NSString *)getAreaidWithCityName:(NSString *)cityName {
     NSDictionary *areaidDictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"chinaCodeList" ofType:@"plist"]];
+    
     return areaidDictionary[cityName];
 }
 
@@ -931,54 +962,159 @@
     //    [HMFileManager removeAllFilesExcept:@"cities.plist"];
 }
 
+- (void)wipeAllData {
+    [HMFileManager removeAllFiles];
+    //    [HMFileManager removeAllFilesExcept:@"cities.plist"];
+}
+
+#pragma mark - Exception Notification
+
+- (void)popNotificationWithTitle:(NSString *)title subtitle:(NSString *)subtitle image:(UIImage *)image topButtonText:(NSString *)topButtonText bottomButtonText:(NSString *)bottomButtonText tapDismiss:(BOOL)tapDismiss{
+    if(_notification.isBeingShown) {
+        [_notification dismissWithGravityAnimation:NO];
+    }
+    
+    [_notification setTitleText:title];
+    [_notification setSubtitleText:subtitle];
+    [_notification setImage:image];
+    [_notification setTopButtonText:topButtonText];
+    [_notification setBottomButtonText:bottomButtonText];
+    [_notification setDismissOnTap:tapDismiss];
+    
+    [_notification presentInView:self.tableView withGravityAnimation:YES];
+    
+}
+
+-(void)dropdownNotificationTopButtonTapped {
+    NSLog(@"Top button tapped");
+    [self updateAllCityCell];
+    [[SKAMapLocation shareManager] findCurrentLocation];
+    [_notification dismissWithGravityAnimation:YES];
+}
+
+-(void)dropdownNotificationBottomButtonTapped {
+    NSLog(@"Bottom button tapped");
+    [_notification dismissWithGravityAnimation:YES];
+}
+
 
 #pragma mark - Refresh City Model
 
 - (void)updateAllCityCell {
+    NSLog(@"updateAllCityCell");
     for (int i = 0; i<self.cities.count; ++i) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         [self refreshCell:[self.tableView cellForRowAtIndexPath:indexPath] withIndexPath:indexPath weatherModel:self.cities[i]];
-        NSLog(@"后台刷新%@的数据", self.cities[i].city);
+        NSLog(@"正在刷新%@的数据", self.cities[i].city);
     }
 }
 
 - (void)updateItemAtIndexPath:(NSIndexPath *)indexPath withObject:(SKAPIStoreWeatherModel *)object {
     [self.tableView beginUpdates];
+    
     if (object) {
         [self.cities insertObject:object atIndex:indexPath.row];
+        // 未准备完成不能交互
+//        [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:0]] setUserInteractionEnabled:NO];
         [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+        // todo: 注释掉的三行代码
+//        [HMFileManager removeFileByFileName:@"cities"];
         [HMFileManager saveObject:self.cities byFileName:@"cities"];
     }
+    
     [self.tableView endUpdates];
 }
 
 - (void)refreshCell:(WeatherTableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath weatherModel:(SKAPIStoreWeatherModel *)oldModel {
-    [[SKAPIStoreWeatherManager sharedInstance] conditionRequestWithCityid:[self getAreaidWithCityName:oldModel.city] successBlock:^(SKAPIStoreWeatherModel *model) {
+    
+    if (![HMFileManager getObjectByFileName:[self getAreaidWithCityName:oldModel.city]]) {
+        [cell setUserInteractionEnabled:NO];
+        [cell setCityName:@"--" conditionNum:0 temperatureHi:0 temperatureLow:0];
         
-        self.updateDate = [NSDate date];
-        
-        if (model.errorNumber!=0) {
-            [model setUpdateTime:[NSDate date]];
-            NSLog(@"%@", model);
-            [cell setCityName:model.city conditionNum:0 temperatureHi:[model.today.tempHigh intValue] temperatureLow:[model.today.tempLow intValue]];
-//            [cell.activityIndicator stopAnimating];
-            [HMFileManager saveObject:model byFileName:model.cityid];
-        } else {
-            NSLog(@"error:%@",model.errorNumber);
-        }
-    } failureBlock:^(NSError *error) {
-        [cell setBackgroundColor:[UIColor redColor]];
-        [cell setCity:@"错误"];
-        NSLog(@"blooo:%@",error.description);
-    }];
-}
+        [[SKAPIStoreWeatherManager sharedInstance] conditionRequestWithCityid:[self getAreaidWithCityName:self.cities[indexPath.row].city] successBlock:^(SKAPIStoreWeatherModel *model) {
+            
+            self.updateDate = [NSDate date];
+            
+            if (model.errorNumber!=0) {
+                [model setUpdateTime:[NSDate date]];
+//                NSLog(@"%@", model);
+                
+                self.cities[indexPath.row] = model;
 
+                [cell setWeatherModel:model];
+                [cell setUserInteractionEnabled:YES];
+                
+                [HMFileManager removeFileByFileName:model.cityid];
+                [HMFileManager saveObject:model byFileName:model.cityid];
+            } else {
+                NSLog(@"error:%@",model.errorNumber);
+            }
+            
+        } failureBlock:^(NSError *error) {
+            [cell setUserInteractionEnabled:YES];
+            
+            [self popNotificationWithTitle:@"错误" subtitle:@"无法刷新天气情况" image:[UIImage imageNamed:@"update"] topButtonText:@"刷新" bottomButtonText:@"取消" tapDismiss:NO];
+            
+            [cell setBackgroundColor:[UIColor redColor]];
+            [cell setCity:@"错误，点击刷新"];
+            
+            NSLog(@"blooo:%@",error.description);
+        }];
+        
+        
+    } else {
+        SKAPIStoreWeatherModel *savedModel = [HMFileManager getObjectByFileName:[self getAreaidWithCityName:self.cities[indexPath.row].city]];
+        
+        self.cities[indexPath.row] = savedModel;
+
+        [cell setWeatherModel:savedModel];
+        [cell setUserInteractionEnabled:YES];
+        
+        if (![self compareDateWithUpdateTime:savedModel.updateTime]) {
+            [cell setCityName:@"--" conditionNum:0 temperatureHi:0 temperatureLow:0];
+            [cell setUserInteractionEnabled:NO];
+            
+            [[SKAPIStoreWeatherManager sharedInstance] conditionRequestWithCityid:[self getAreaidWithCityName:self.cities[indexPath.row].city] successBlock:^(SKAPIStoreWeatherModel *model) {
+                
+                self.updateDate = [NSDate date];
+                
+                if (model.errorNumber!=0) {
+                    [model setUpdateTime:[NSDate date]];
+//                    NSLog(@"%@", model);
+                    
+                    self.cities[indexPath.row] = model;
+
+                    [cell setWeatherModel:model];
+                    
+                    [HMFileManager saveObject:model byFileName:model.cityid];
+                } else {
+                    NSLog(@"error:%@",model.errorNumber);
+                }
+                
+            } failureBlock:^(NSError *error) {
+                [cell setUserInteractionEnabled:YES];
+                
+                
+                
+                [cell setBackgroundColor:[UIColor redColor]];
+                [cell setCity:@"错误"];
+                
+                NSLog(@"blooo:%@",error.description);
+                [self popNotificationWithTitle:@"错误" subtitle:@"无法刷新天气情况" image:[UIImage imageNamed:@"update"] topButtonText:@"好的" bottomButtonText:@"取消" tapDismiss:NO];
+            }];
+        }
+    }
+
+}
 
 - (void)deleteItemAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView beginUpdates];
+    
     [self.cities removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    [HMFileManager removeFileByFileName:@"cities"];
     [HMFileManager saveObject:self.cities byFileName:@"cities"];
+    
     [self.tableView endUpdates];
 }
 

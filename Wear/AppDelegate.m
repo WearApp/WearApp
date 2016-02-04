@@ -22,20 +22,20 @@
 
 @implementation AppDelegate
 
-#pragma mark - Background Fetch Callback
-
--(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    ViewController *mainVC = (ViewController *)self.window.rootViewController;
-    
-    NSLog(@"applicationperformfetchwithcompletion");
-    
-    if ([mainVC isKindOfClass:[ViewController class]]) {
-        [(ViewController *)mainVC insertNewObjectForFetchWithCompletionHandler:completionHandler];
-    } else {
-        NSLog(@"Not the right class %@.", [ViewController class]);
-        completionHandler(UIBackgroundFetchResultFailed);
-    }
-}
+//#pragma mark - Background Fetch Callback
+//
+//-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+//    ViewController *mainVC = (ViewController *)self.window.rootViewController;
+//    
+//    NSLog(@"applicationperformfetchwithcompletion");
+//    
+//    if ([mainVC isKindOfClass:[ViewController class]]) {
+//        [(ViewController *)mainVC insertNewObjectForFetchWithCompletionHandler:completionHandler];
+//    } else {
+//        NSLog(@"Not the right class %@.", [ViewController class]);
+//        completionHandler(UIBackgroundFetchResultFailed);
+//    }
+//}
 
 #pragma mark - Lifecycle
 
@@ -49,7 +49,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    [self.window setBackgroundColor:[UIColor redColor]];
+    [self.window setBackgroundColor:[UIColor whiteColor]];
     
     ViewController *vc = [[ViewController alloc] initWithNibName:@"ViewController" bundle:[NSBundle mainBundle]];
     [self.window setRootViewController:vc];

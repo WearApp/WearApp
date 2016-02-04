@@ -10,11 +10,14 @@
 #import "YRActivityIndicator.h"
 #import <MGSwipeTableCell.h>
 
+@class SKAPIStoreWeatherModel;
+
 @interface WeatherTableViewCell : MGSwipeTableCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *conditionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *wearIconImageView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cityNameLabelTopConstant;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *conditionImageViewTopConstant;
@@ -27,5 +30,7 @@
 - (void)setTemperatureHi:(NSInteger)hi temperatureLow:(NSInteger)low;
 //- (void)setWearSuggestionNumber:(NSInteger)suggestionNumber;
 - (void)setConditionNumber:(NSInteger)conditionNumber;
+
+- (void)setWeatherModel:(SKAPIStoreWeatherModel *)weatherModel;
 
 @end

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SKAPIStoreWeatherModel.h"
+
 @interface HeaderView : UIView
 
 + (instancetype)instantiateFromNib;
@@ -15,5 +17,11 @@
 - (void)setCityName:(NSString *)cityName temperarute:(NSString *)temperature tempLow:(NSString *)tempLow tempHigh:(NSString *)tempHigh;
 
 - (void)setCityLabelTextSize;
+
+- (void)setWeatherModel:(SKAPIStoreWeatherModel *)weatherModel;
+
+- (NSString *)cityName;
+
+@property (nonatomic, strong) SKAPIStoreWeatherModel *weather;
 
 @end

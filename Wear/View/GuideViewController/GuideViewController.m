@@ -519,6 +519,11 @@
 }
 
 - (void)presentCardColor:(id)sender {
+    NSLog(@"%@",self.headerView.cityName);
+    if ([self.headerView.cityName isEqualToString:@"获取失败，点击重试"]) {
+        [[SKAMapLocation shareManager] findCurrentLocation];
+        return;
+    }
     
     CardViewController *cardVC = [[CardViewController alloc] init];
     STPopupController *popupController = [[STPopupController alloc] initWithRootViewController:cardVC];

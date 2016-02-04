@@ -26,7 +26,6 @@
 		B10C30451C016728003C5EC9 /* icon_share_qzone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B10C302D1C016727003C5EC9 /* icon_share_qzone@2x.png */; };
 		B10C30461C016728003C5EC9 /* icon_share_webo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B10C302E1C016727003C5EC9 /* icon_share_webo@2x.png */; };
 		B10C30471C016728003C5EC9 /* icon_share_wechat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B10C302F1C016727003C5EC9 /* icon_share_wechat@2x.png */; };
-		B10C30481C016728003C5EC9 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B10C30301C016727003C5EC9 /* logo.jpg */; };
 		B10C30491C016728003C5EC9 /* XMShareQQUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B10C30331C016727003C5EC9 /* XMShareQQUtil.m */; };
 		B10C304A1C016728003C5EC9 /* XMShareUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B10C30351C016727003C5EC9 /* XMShareUtil.m */; };
 		B10C304B1C016728003C5EC9 /* XMShareWechatUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B10C30371C016727003C5EC9 /* XMShareWechatUtil.m */; };
@@ -48,12 +47,6 @@
 		B10C306A1C016847003C5EC9 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B10C30691C016847003C5EC9 /* libiconv.tbd */; };
 		B10D755B1C036A1400499B20 /* EggsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B10D75591C036A1400499B20 /* EggsViewController.m */; };
 		B10D755C1C036A1400499B20 /* EggsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10D755A1C036A1400499B20 /* EggsViewController.xib */; };
-		B10D75641C037BDA00499B20 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10D75631C037BDA00499B20 /* NotificationCenter.framework */; };
-		B10D75681C037BDA00499B20 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B10D75671C037BDA00499B20 /* TodayViewController.m */; };
-		B10D756B1C037BDA00499B20 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B10D75691C037BDA00499B20 /* MainInterface.storyboard */; };
-		B10D756F1C037BDA00499B20 /* WearTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B10D75621C037BDA00499B20 /* WearTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B10D757C1C037C6800499B20 /* IndexRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B10D757B1C037C6800499B20 /* IndexRequestHandler.m */; };
-		B10D75801C037C6800499B20 /* WearSpotlightExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B10D75781C037C6800499B20 /* WearSpotlightExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B10D75EA1C04988200499B20 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = B10D75E51C04988200499B20 /* check.png */; };
 		B10D75EB1C04988200499B20 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = B10D75E61C04988200499B20 /* citydict.plist */; };
 		B10D75EC1C04988200499B20 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B10D75E81C04988200499B20 /* CityListViewController.m */; };
@@ -66,6 +59,11 @@
 		B1404F8F1BCA0C3000078EE9 /* WearTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1404F8E1BCA0C3000078EE9 /* WearTests.m */; };
 		B1404F9A1BCA0C3000078EE9 /* WearUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1404F991BCA0C3000078EE9 /* WearUITests.m */; };
 		B1404FA81BCA492800078EE9 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1404FA71BCA492800078EE9 /* ViewController.xib */; };
+		B14558211C157AD5007E39AF /* TodayEquipmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B145581F1C157AD5007E39AF /* TodayEquipmentTableViewCell.m */; };
+		B14558221C157AD5007E39AF /* TodayEquipmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14558201C157AD5007E39AF /* TodayEquipmentTableViewCell.xib */; };
+		B14558261C15B54D007E39AF /* GraphHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B14558241C15B54C007E39AF /* GraphHeadTableViewCell.m */; };
+		B14558271C15B54D007E39AF /* GraphHeadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14558251C15B54C007E39AF /* GraphHeadTableViewCell.xib */; };
+		B145582D1C16F221007E39AF /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B145582C1C16F221007E39AF /* logo.jpg */; };
 		B1654A441BF741D500A0B4B1 /* cityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1654A431BF741D500A0B4B1 /* cityList.plist */; };
 		B1654A491BF765A000A0B4B1 /* SKAMapLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = B1654A481BF765A000A0B4B1 /* SKAMapLocation.m */; };
 		B1654A531BF76F2D00A0B4B1 /* WeatherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1654A511BF76F2D00A0B4B1 /* WeatherTableViewCell.m */; };
@@ -93,6 +91,8 @@
 		B16B4BCB1BF897FC00377BF0 /* EmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B16B4BC91BF897FC00377BF0 /* EmptyCell.m */; };
 		B16B4BCC1BF897FC00377BF0 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16B4BCA1BF897FC00377BF0 /* EmptyCell.xib */; };
 		B1832DFC1C05EAC300A90584 /* citydict1.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1832DFB1C05EAC300A90584 /* citydict1.plist */; };
+		B18E6EB51C1099C300282DAB /* CardDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B18E6EB31C1099C300282DAB /* CardDetailTableViewCell.m */; };
+		B18E6EB61C1099C300282DAB /* CardDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18E6EB41C1099C300282DAB /* CardDetailTableViewCell.xib */; };
 		B19708B71C00802A008AD2AF /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19708B21C00802A008AD2AF /* HeaderView.m */; };
 		B19708B81C00802A008AD2AF /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19708B31C00802A008AD2AF /* HeaderView.xib */; };
 		B19708B91C00802A008AD2AF /* UIScrollView+VGParallaxHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B19708B61C00802A008AD2AF /* UIScrollView+VGParallaxHeader.m */; };
@@ -106,6 +106,7 @@
 		B199C2871C06C75D0048F9B9 /* sarCodeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B199C2831C06C75D0048F9B9 /* sarCodeList.plist */; };
 		B199C2891C06C81D0048F9B9 /* chinaCodeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B199C2881C06C81D0048F9B9 /* chinaCodeList.plist */; };
 		B199C28D1C06D8B90048F9B9 /* MLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B199C28C1C06D8B90048F9B9 /* MLSearchBar.m */; };
+		B19EAC8D1C0F28E700BAE301 /* SKWear.m in Sources */ = {isa = PBXBuildFile; fileRef = B19EAC8C1C0F28E700BAE301 /* SKWear.m */; };
 		B1A68C861C06EEF000BCD01E /* HotCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A68C841C06EEF000BCD01E /* HotCityTableViewCell.m */; };
 		B1A68C871C06EEF000BCD01E /* HotCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1A68C851C06EEF000BCD01E /* HotCityTableViewCell.xib */; };
 		B1B1AD0C1C02ADFD00CA3E65 /* TapHeaderGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD0B1C02ADFD00CA3E65 /* TapHeaderGestureRecognizer.m */; };
@@ -121,6 +122,15 @@
 		B1B1AD7B1C03414A00CA3E65 /* VORefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B1AD771C03414A00CA3E65 /* VORefreshView.m */; };
 		B1BB8F5C1C087B2A008814A4 /* FirstRunTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BB8F5A1C087B2A008814A4 /* FirstRunTableViewCell.m */; };
 		B1BB8F5D1C087B2A008814A4 /* FirstRunTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1BB8F5B1C087B2A008814A4 /* FirstRunTableViewCell.xib */; };
+		B1BF984E1C130CCC007BC401 /* LazyPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BF984D1C130CCC007BC401 /* LazyPageScrollView.m */; };
+		B1BF98511C131B5A007BC401 /* TodayCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BF98501C131B5A007BC401 /* TodayCardView.m */; };
+		B1BF98561C131F14007BC401 /* TodayCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1BF98551C131F14007BC401 /* TodayCardView.xib */; };
+		B1BF98591C1324EF007BC401 /* ForecastCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BF98581C1324EF007BC401 /* ForecastCardView.m */; };
+		B1BF985B1C132504007BC401 /* ForecastCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1BF985A1C132504007BC401 /* ForecastCardView.xib */; };
+		B1BF985E1C13251C007BC401 /* TrendCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BF985D1C13251C007BC401 /* TrendCardView.m */; };
+		B1BF98601C13252C007BC401 /* TrendCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1BF985F1C13252C007BC401 /* TrendCardView.xib */; };
+		B1D835C61C141ABD003B3ED9 /* ForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D835C41C141ABD003B3ED9 /* ForecastTableViewCell.m */; };
+		B1D835C71C141ABD003B3ED9 /* ForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D835C51C141ABD003B3ED9 /* ForecastTableViewCell.xib */; };
 		B1ECABF11BF953FF00A8BDAA /* CFCityPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ECABDC1BF953FF00A8BDAA /* CFCityPickerVC.swift */; };
 		B1ECABF21BF953FF00A8BDAA /* CFCityPickerVCCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ECABDE1BF953FF00A8BDAA /* CFCityPickerVCCommon.swift */; };
 		B1ECABF31BF953FF00A8BDAA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ECABDF1BF953FF00A8BDAA /* LocationManager.swift */; };
@@ -152,20 +162,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B10D756D1C037BDA00499B20 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1404F691BCA0C3000078EE9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B10D75611C037BDA00499B20;
-			remoteInfo = WearTodayExtension;
-		};
-		B10D757E1C037C6800499B20 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1404F691BCA0C3000078EE9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B10D75771C037C6800499B20;
-			remoteInfo = WearSpotlightExtension;
-		};
 		B1404F8B1BCA0C3000078EE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B1404F691BCA0C3000078EE9 /* Project object */;
@@ -189,8 +185,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B10D75801C037C6800499B20 /* WearSpotlightExtension.appex in Embed App Extensions */,
-				B10D756F1C037BDA00499B20 /* WearTodayExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,7 +239,6 @@
 		B10C302D1C016727003C5EC9 /* icon_share_qzone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share_qzone@2x.png"; sourceTree = "<group>"; };
 		B10C302E1C016727003C5EC9 /* icon_share_webo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share_webo@2x.png"; sourceTree = "<group>"; };
 		B10C302F1C016727003C5EC9 /* icon_share_wechat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share_wechat@2x.png"; sourceTree = "<group>"; };
-		B10C30301C016727003C5EC9 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		B10C30321C016727003C5EC9 /* XMShareQQUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMShareQQUtil.h; sourceTree = "<group>"; };
 		B10C30331C016727003C5EC9 /* XMShareQQUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMShareQQUtil.m; sourceTree = "<group>"; };
 		B10C30341C016727003C5EC9 /* XMShareUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMShareUtil.h; sourceTree = "<group>"; };
@@ -273,16 +266,7 @@
 		B10D75581C036A1400499B20 /* EggsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EggsViewController.h; path = EggsViewController/EggsViewController.h; sourceTree = "<group>"; };
 		B10D75591C036A1400499B20 /* EggsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EggsViewController.m; path = EggsViewController/EggsViewController.m; sourceTree = "<group>"; };
 		B10D755A1C036A1400499B20 /* EggsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EggsViewController.xib; path = EggsViewController/EggsViewController.xib; sourceTree = "<group>"; };
-		B10D75621C037BDA00499B20 /* WearTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WearTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B10D75631C037BDA00499B20 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		B10D75661C037BDA00499B20 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
-		B10D75671C037BDA00499B20 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
-		B10D756A1C037BDA00499B20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		B10D756C1C037BDA00499B20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B10D75781C037C6800499B20 /* WearSpotlightExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WearSpotlightExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		B10D757A1C037C6800499B20 /* IndexRequestHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexRequestHandler.h; sourceTree = "<group>"; };
-		B10D757B1C037C6800499B20 /* IndexRequestHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexRequestHandler.m; sourceTree = "<group>"; };
-		B10D757D1C037C6800499B20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B10D75E51C04988200499B20 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		B10D75E61C04988200499B20 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		B10D75E71C04988200499B20 /* CityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListViewController.h; sourceTree = "<group>"; };
@@ -304,6 +288,13 @@
 		B1404F991BCA0C3000078EE9 /* WearUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WearUITests.m; sourceTree = "<group>"; };
 		B1404F9B1BCA0C3000078EE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1404FA71BCA492800078EE9 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		B145581E1C157AD5007E39AF /* TodayEquipmentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayEquipmentTableViewCell.h; path = Cell/TodayEquipmentTableViewCell.h; sourceTree = "<group>"; };
+		B145581F1C157AD5007E39AF /* TodayEquipmentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayEquipmentTableViewCell.m; path = Cell/TodayEquipmentTableViewCell.m; sourceTree = "<group>"; };
+		B14558201C157AD5007E39AF /* TodayEquipmentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TodayEquipmentTableViewCell.xib; path = Cell/TodayEquipmentTableViewCell.xib; sourceTree = "<group>"; };
+		B14558231C15B54C007E39AF /* GraphHeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphHeadTableViewCell.h; path = Cell/GraphHeadTableViewCell.h; sourceTree = "<group>"; };
+		B14558241C15B54C007E39AF /* GraphHeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphHeadTableViewCell.m; path = Cell/GraphHeadTableViewCell.m; sourceTree = "<group>"; };
+		B14558251C15B54C007E39AF /* GraphHeadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphHeadTableViewCell.xib; path = Cell/GraphHeadTableViewCell.xib; sourceTree = "<group>"; };
+		B145582C1C16F221007E39AF /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		B1654A431BF741D500A0B4B1 /* cityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityList.plist; sourceTree = "<group>"; };
 		B1654A471BF765A000A0B4B1 /* SKAMapLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAMapLocation.h; sourceTree = "<group>"; };
 		B1654A481BF765A000A0B4B1 /* SKAMapLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAMapLocation.m; sourceTree = "<group>"; };
@@ -353,6 +344,9 @@
 		B16B4BC91BF897FC00377BF0 /* EmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyCell.m; sourceTree = "<group>"; };
 		B16B4BCA1BF897FC00377BF0 /* EmptyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
 		B1832DFB1C05EAC300A90584 /* citydict1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict1.plist; sourceTree = "<group>"; };
+		B18E6EB21C1099C300282DAB /* CardDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDetailTableViewCell.h; sourceTree = "<group>"; };
+		B18E6EB31C1099C300282DAB /* CardDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDetailTableViewCell.m; sourceTree = "<group>"; };
+		B18E6EB41C1099C300282DAB /* CardDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardDetailTableViewCell.xib; sourceTree = "<group>"; };
 		B19708B11C00802A008AD2AF /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		B19708B21C00802A008AD2AF /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		B19708B31C00802A008AD2AF /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -370,6 +364,8 @@
 		B199C2881C06C81D0048F9B9 /* chinaCodeList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = chinaCodeList.plist; sourceTree = "<group>"; };
 		B199C28B1C06D8B90048F9B9 /* MLSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSearchBar.h; sourceTree = "<group>"; };
 		B199C28C1C06D8B90048F9B9 /* MLSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSearchBar.m; sourceTree = "<group>"; };
+		B19EAC8B1C0F28E700BAE301 /* SKWear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKWear.h; sourceTree = "<group>"; };
+		B19EAC8C1C0F28E700BAE301 /* SKWear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKWear.m; sourceTree = "<group>"; };
 		B1A68C831C06EEF000BCD01E /* HotCityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCityTableViewCell.h; sourceTree = "<group>"; };
 		B1A68C841C06EEF000BCD01E /* HotCityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCityTableViewCell.m; sourceTree = "<group>"; };
 		B1A68C851C06EEF000BCD01E /* HotCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCityTableViewCell.xib; sourceTree = "<group>"; };
@@ -398,6 +394,20 @@
 		B1BB8F591C087B2A008814A4 /* FirstRunTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstRunTableViewCell.h; sourceTree = "<group>"; };
 		B1BB8F5A1C087B2A008814A4 /* FirstRunTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstRunTableViewCell.m; sourceTree = "<group>"; };
 		B1BB8F5B1C087B2A008814A4 /* FirstRunTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstRunTableViewCell.xib; sourceTree = "<group>"; };
+		B1BF984C1C130CCC007BC401 /* LazyPageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LazyPageScrollView.h; sourceTree = "<group>"; };
+		B1BF984D1C130CCC007BC401 /* LazyPageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LazyPageScrollView.m; sourceTree = "<group>"; };
+		B1BF984F1C131B5A007BC401 /* TodayCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayCardView.h; path = View/TodayCardView.h; sourceTree = "<group>"; };
+		B1BF98501C131B5A007BC401 /* TodayCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayCardView.m; path = View/TodayCardView.m; sourceTree = "<group>"; };
+		B1BF98551C131F14007BC401 /* TodayCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TodayCardView.xib; path = View/TodayCardView.xib; sourceTree = "<group>"; };
+		B1BF98571C1324EF007BC401 /* ForecastCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForecastCardView.h; path = View/ForecastCardView.h; sourceTree = "<group>"; };
+		B1BF98581C1324EF007BC401 /* ForecastCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForecastCardView.m; path = View/ForecastCardView.m; sourceTree = "<group>"; };
+		B1BF985A1C132504007BC401 /* ForecastCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForecastCardView.xib; path = View/ForecastCardView.xib; sourceTree = "<group>"; };
+		B1BF985C1C13251C007BC401 /* TrendCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrendCardView.h; path = View/TrendCardView.h; sourceTree = "<group>"; };
+		B1BF985D1C13251C007BC401 /* TrendCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrendCardView.m; path = View/TrendCardView.m; sourceTree = "<group>"; };
+		B1BF985F1C13252C007BC401 /* TrendCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TrendCardView.xib; path = View/TrendCardView.xib; sourceTree = "<group>"; };
+		B1D835C31C141ABD003B3ED9 /* ForecastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForecastTableViewCell.h; path = Cell/ForecastTableViewCell.h; sourceTree = "<group>"; };
+		B1D835C41C141ABD003B3ED9 /* ForecastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForecastTableViewCell.m; path = Cell/ForecastTableViewCell.m; sourceTree = "<group>"; };
+		B1D835C51C141ABD003B3ED9 /* ForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForecastTableViewCell.xib; path = Cell/ForecastTableViewCell.xib; sourceTree = "<group>"; };
 		B1ECABDC1BF953FF00A8BDAA /* CFCityPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFCityPickerVC.swift; sourceTree = "<group>"; };
 		B1ECABDE1BF953FF00A8BDAA /* CFCityPickerVCCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFCityPickerVCCommon.swift; sourceTree = "<group>"; };
 		B1ECABDF1BF953FF00A8BDAA /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -438,21 +448,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B10D755F1C037BDA00499B20 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B10D75641C037BDA00499B20 /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B10D75751C037C6800499B20 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B1404F6E1BCA0C3000078EE9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -629,12 +624,12 @@
 		B10C302A1C016727003C5EC9 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				B145582C1C16F221007E39AF /* logo.jpg */,
 				B10C302B1C016727003C5EC9 /* icon_share_moment@2x.png */,
 				B10C302C1C016727003C5EC9 /* icon_share_qq@2x.png */,
 				B10C302D1C016727003C5EC9 /* icon_share_qzone@2x.png */,
 				B10C302E1C016727003C5EC9 /* icon_share_webo@2x.png */,
 				B10C302F1C016727003C5EC9 /* icon_share_wechat@2x.png */,
-				B10C30301C016727003C5EC9 /* logo.jpg */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -662,27 +657,6 @@
 				B10D755A1C036A1400499B20 /* EggsViewController.xib */,
 			);
 			name = Eggs;
-			sourceTree = "<group>";
-		};
-		B10D75651C037BDA00499B20 /* WearTodayExtension */ = {
-			isa = PBXGroup;
-			children = (
-				B10D75661C037BDA00499B20 /* TodayViewController.h */,
-				B10D75671C037BDA00499B20 /* TodayViewController.m */,
-				B10D75691C037BDA00499B20 /* MainInterface.storyboard */,
-				B10D756C1C037BDA00499B20 /* Info.plist */,
-			);
-			path = WearTodayExtension;
-			sourceTree = "<group>";
-		};
-		B10D75791C037C6800499B20 /* WearSpotlightExtension */ = {
-			isa = PBXGroup;
-			children = (
-				B10D757A1C037C6800499B20 /* IndexRequestHandler.h */,
-				B10D757B1C037C6800499B20 /* IndexRequestHandler.m */,
-				B10D757D1C037C6800499B20 /* Info.plist */,
-			);
-			path = WearSpotlightExtension;
 			sourceTree = "<group>";
 		};
 		B10D75E41C04988200499B20 /* CityList */ = {
@@ -713,8 +687,6 @@
 				B1404F731BCA0C3000078EE9 /* Wear */,
 				B1404F8D1BCA0C3000078EE9 /* WearTests */,
 				B1404F981BCA0C3000078EE9 /* WearUITests */,
-				B10D75651C037BDA00499B20 /* WearTodayExtension */,
-				B10D75791C037C6800499B20 /* WearSpotlightExtension */,
 				B1404F721BCA0C3000078EE9 /* Products */,
 				EB58C86EAF7FF9E7F5AE1E6A /* Pods */,
 				ADA430959C3EE5362CB3CDDC /* Frameworks */,
@@ -727,8 +699,6 @@
 				B1404F711BCA0C3000078EE9 /* Wear.app */,
 				B1404F8A1BCA0C3000078EE9 /* WearTests.xctest */,
 				B1404F951BCA0C3000078EE9 /* WearUITests.xctest */,
-				B10D75621C037BDA00499B20 /* WearTodayExtension.appex */,
-				B10D75781C037C6800499B20 /* WearSpotlightExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -785,6 +755,7 @@
 		B1404FAE1BCA4B7E00078EE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B1BF984B1C130CCC007BC401 /* LazyPageScrollView */,
 				B1098BB11C08931600530A32 /* GuideViewController */,
 				B1BB8F581C087B18008814A4 /* FirstRunCell */,
 				B10D75E41C04988200499B20 /* CityList */,
@@ -820,6 +791,11 @@
 				B1654A571BF76F4A00A0B4B1 /* CardViewController.m */,
 				B1654A581BF76F4A00A0B4B1 /* CardViewController.xib */,
 				B1654A591BF76F4A00A0B4B1 /* ShareActionSheet */,
+				B18E6EB21C1099C300282DAB /* CardDetailTableViewCell.h */,
+				B18E6EB31C1099C300282DAB /* CardDetailTableViewCell.m */,
+				B18E6EB41C1099C300282DAB /* CardDetailTableViewCell.xib */,
+				B1BF98521C131B5E007BC401 /* View */,
+				B1D835C81C141AC1003B3ED9 /* Cell */,
 			);
 			name = ConditionCard;
 			path = View/ConditionCard;
@@ -885,6 +861,7 @@
 		B16B4B7D1BF8445B00377BF0 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				B19EAC8A1C0F28CD00BAE301 /* SKWear */,
 				B16B4B921BF84AAE00377BF0 /* SKAPIStoreWeather */,
 				B16B4B881BF84A9100377BF0 /* SKHeWeather */,
 			);
@@ -1015,6 +992,15 @@
 			path = View/MLSearchBar;
 			sourceTree = "<group>";
 		};
+		B19EAC8A1C0F28CD00BAE301 /* SKWear */ = {
+			isa = PBXGroup;
+			children = (
+				B19EAC8B1C0F28E700BAE301 /* SKWear.h */,
+				B19EAC8C1C0F28E700BAE301 /* SKWear.m */,
+			);
+			path = SKWear;
+			sourceTree = "<group>";
+		};
 		B1B1AD111C0327F500CA3E65 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1100,6 +1086,48 @@
 			);
 			name = FirstRunCell;
 			path = View/FirstRunCell;
+			sourceTree = "<group>";
+		};
+		B1BF984B1C130CCC007BC401 /* LazyPageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				B1BF984C1C130CCC007BC401 /* LazyPageScrollView.h */,
+				B1BF984D1C130CCC007BC401 /* LazyPageScrollView.m */,
+			);
+			name = LazyPageScrollView;
+			path = View/LazyPageScrollView;
+			sourceTree = "<group>";
+		};
+		B1BF98521C131B5E007BC401 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1BF984F1C131B5A007BC401 /* TodayCardView.h */,
+				B1BF98501C131B5A007BC401 /* TodayCardView.m */,
+				B1BF98551C131F14007BC401 /* TodayCardView.xib */,
+				B1BF98571C1324EF007BC401 /* ForecastCardView.h */,
+				B1BF98581C1324EF007BC401 /* ForecastCardView.m */,
+				B1BF985A1C132504007BC401 /* ForecastCardView.xib */,
+				B1BF985C1C13251C007BC401 /* TrendCardView.h */,
+				B1BF985D1C13251C007BC401 /* TrendCardView.m */,
+				B1BF985F1C13252C007BC401 /* TrendCardView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B1D835C81C141AC1003B3ED9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B1D835C31C141ABD003B3ED9 /* ForecastTableViewCell.h */,
+				B1D835C41C141ABD003B3ED9 /* ForecastTableViewCell.m */,
+				B1D835C51C141ABD003B3ED9 /* ForecastTableViewCell.xib */,
+				B145581E1C157AD5007E39AF /* TodayEquipmentTableViewCell.h */,
+				B145581F1C157AD5007E39AF /* TodayEquipmentTableViewCell.m */,
+				B14558201C157AD5007E39AF /* TodayEquipmentTableViewCell.xib */,
+				B14558231C15B54C007E39AF /* GraphHeadTableViewCell.h */,
+				B14558241C15B54C007E39AF /* GraphHeadTableViewCell.m */,
+				B14558251C15B54C007E39AF /* GraphHeadTableViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		B1ECABDB1BF953FF00A8BDAA /* CFCityPickerVC */ = {
@@ -1225,40 +1253,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B10D75611C037BDA00499B20 /* WearTodayExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B10D75721C037BDA00499B20 /* Build configuration list for PBXNativeTarget "WearTodayExtension" */;
-			buildPhases = (
-				B10D755E1C037BDA00499B20 /* Sources */,
-				B10D755F1C037BDA00499B20 /* Frameworks */,
-				B10D75601C037BDA00499B20 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WearTodayExtension;
-			productName = WearTodayExtension;
-			productReference = B10D75621C037BDA00499B20 /* WearTodayExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		B10D75771C037C6800499B20 /* WearSpotlightExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B10D75811C037C6800499B20 /* Build configuration list for PBXNativeTarget "WearSpotlightExtension" */;
-			buildPhases = (
-				B10D75741C037C6800499B20 /* Sources */,
-				B10D75751C037C6800499B20 /* Frameworks */,
-				B10D75761C037C6800499B20 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WearSpotlightExtension;
-			productName = WearSpotlightExtension;
-			productReference = B10D75781C037C6800499B20 /* WearSpotlightExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		B1404F701BCA0C3000078EE9 /* Wear */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1404F9E1BCA0C3000078EE9 /* Build configuration list for PBXNativeTarget "Wear" */;
@@ -1270,14 +1264,12 @@
 				BCB8DEE5A63A015B35827660 /* Embed Pods Frameworks */,
 				535E45D1D25B5D4FF53F0876 /* Copy Pods Resources */,
 				B10D75731C037BDA00499B20 /* Embed App Extensions */,
-				B10D75DF1C03E92600499B20 /* Embed Watch Content */,
 				B1761E961C07E94A005FE9E6 /* ShellScript */,
+				B10D75DF1C03E92600499B20 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B10D756E1C037BDA00499B20 /* PBXTargetDependency */,
-				B10D757F1C037C6800499B20 /* PBXTargetDependency */,
 			);
 			name = Wear;
 			productName = Wear;
@@ -1330,19 +1322,12 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = sunkai;
 				TargetAttributes = {
-					B10D75611C037BDA00499B20 = {
-						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 6278Q96CU6;
-					};
-					B10D75771C037C6800499B20 = {
-						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 6278Q96CU6;
-					};
 					B1404F701BCA0C3000078EE9 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 6278Q96CU6;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1372,28 +1357,11 @@
 				B1404F701BCA0C3000078EE9 /* Wear */,
 				B1404F891BCA0C3000078EE9 /* WearTests */,
 				B1404F941BCA0C3000078EE9 /* WearUITests */,
-				B10D75611C037BDA00499B20 /* WearTodayExtension */,
-				B10D75771C037C6800499B20 /* WearSpotlightExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B10D75601C037BDA00499B20 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B10D756B1C037BDA00499B20 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B10D75761C037C6800499B20 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B1404F6F1BCA0C3000078EE9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1407,7 +1375,7 @@
 				B199C2861C06C75D0048F9B9 /* provinceCodeList.plist in Resources */,
 				B10C2FE51C00AD77003C5EC9 /* YALSunnyRefreshControl.xib in Resources */,
 				B1ECAC1D1BFA3A5200A8BDAA /* cityName.plist in Resources */,
-				B10C30481C016728003C5EC9 /* logo.jpg in Resources */,
+				B1D835C71C141ABD003B3ED9 /* ForecastTableViewCell.xib in Resources */,
 				B1ECAC1F1BFA471200A8BDAA /* down.png in Resources */,
 				B10D75EA1C04988200499B20 /* check.png in Resources */,
 				B1098BBB1C09662400530A32 /* GuideCardViewController.xib in Resources */,
@@ -1416,12 +1384,15 @@
 				B1ECABFF1BF953FF00A8BDAA /* HeaderItemView.xib in Resources */,
 				B1ECABFB1BF953FF00A8BDAA /* CFCityCell.xib in Resources */,
 				B1ECAC0A1BF9542E00A8BDAA /* city.plist in Resources */,
+				B18E6EB61C1099C300282DAB /* CardDetailTableViewCell.xib in Resources */,
 				B10C303D1C016727003C5EC9 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				B1654A541BF76F2D00A0B4B1 /* WeatherTableViewCell.xib in Resources */,
 				B1654A441BF741D500A0B4B1 /* cityList.plist in Resources */,
 				B10D755C1C036A1400499B20 /* EggsViewController.xib in Resources */,
 				B10C30451C016728003C5EC9 /* icon_share_qzone@2x.png in Resources */,
+				B145582D1C16F221007E39AF /* logo.jpg in Resources */,
 				B10C30431C016728003C5EC9 /* icon_share_moment@2x.png in Resources */,
+				B1BF98561C131F14007BC401 /* TodayCardView.xib in Resources */,
 				B199C2891C06C81D0048F9B9 /* chinaCodeList.plist in Resources */,
 				B10C30461C016728003C5EC9 /* icon_share_webo@2x.png in Resources */,
 				B10C30471C016728003C5EC9 /* icon_share_wechat@2x.png in Resources */,
@@ -1429,8 +1400,11 @@
 				B199C2871C06C75D0048F9B9 /* sarCodeList.plist in Resources */,
 				B10D75EB1C04988200499B20 /* citydict.plist in Resources */,
 				B1BB8F5D1C087B2A008814A4 /* FirstRunTableViewCell.xib in Resources */,
+				B14558271C15B54D007E39AF /* GraphHeadTableViewCell.xib in Resources */,
+				B1BF985B1C132504007BC401 /* ForecastCardView.xib in Resources */,
 				B199C2771C06BAF10048F9B9 /* citydictionary.plist in Resources */,
 				B1ECABF51BF953FF00A8BDAA /* CitySearchResultVC.xib in Resources */,
+				B1BF98601C13252C007BC401 /* TrendCardView.xib in Resources */,
 				B10C303F1C016728003C5EC9 /* read_me.txt in Resources */,
 				B1ECAC1C1BFA3A5200A8BDAA /* cityID.plist in Resources */,
 				B1ECAC2D1BFB090B00A8BDAA /* APIStoreCityList.plist in Resources */,
@@ -1440,6 +1414,7 @@
 				B1832DFC1C05EAC300A90584 /* citydict1.plist in Resources */,
 				B19708B81C00802A008AD2AF /* HeaderView.xib in Resources */,
 				B10C30411C016728003C5EC9 /* WeiboSDK.bundle in Resources */,
+				B14558221C157AD5007E39AF /* TodayEquipmentTableViewCell.xib in Resources */,
 				B1654A651BF76F4A00A0B4B1 /* journey_phone@2x.png in Resources */,
 				B1404F811BCA0C3000078EE9 /* Assets.xcassets in Resources */,
 				B10D75ED1C04988200499B20 /* CityListViewController.xib in Resources */,
@@ -1480,7 +1455,7 @@
 		};
 		B1761E961C07E94A005FE9E6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -1524,22 +1499,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B10D755E1C037BDA00499B20 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B10D75681C037BDA00499B20 /* TodayViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B10D75741C037C6800499B20 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B10D757C1C037C6800499B20 /* IndexRequestHandler.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B1404F6D1BCA0C3000078EE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1560,6 +1519,7 @@
 				B1ECAC0D1BF9542E00A8BDAA /* LFindLocationViewController.m in Sources */,
 				B1B1AD511C032CEE00CA3E65 /* iCocosSettingItem.m in Sources */,
 				B1654A641BF76F4A00A0B4B1 /* ItemCell.m in Sources */,
+				B1BF98511C131B5A007BC401 /* TodayCardView.m in Sources */,
 				B19708B71C00802A008AD2AF /* HeaderView.m in Sources */,
 				B1B1AD7B1C03414A00CA3E65 /* VORefreshView.m in Sources */,
 				B1ECABFC1BF953FF00A8BDAA /* CityMaskView.swift in Sources */,
@@ -1580,6 +1540,7 @@
 				B16B4BCB1BF897FC00377BF0 /* EmptyCell.m in Sources */,
 				B1654A661BF76F4A00A0B4B1 /* PicAndTextActionSheet.m in Sources */,
 				B10C30491C016728003C5EC9 /* XMShareQQUtil.m in Sources */,
+				B1BF98591C1324EF007BC401 /* ForecastCardView.m in Sources */,
 				B1ECABF21BF953FF00A8BDAA /* CFCityPickerVCCommon.swift in Sources */,
 				B16B4BBB1BF8509700377BF0 /* SKAPIStoreOtherDayModel.m in Sources */,
 				B1ECABF11BF953FF00A8BDAA /* CFCityPickerVC.swift in Sources */,
@@ -1588,18 +1549,22 @@
 				B1ECABF71BF953FF00A8BDAA /* CFCityPickerVC+TableView.swift in Sources */,
 				B16B4BAB1BF84CB400377BF0 /* Reachability.m in Sources */,
 				B10D75EC1C04988200499B20 /* CityListViewController.m in Sources */,
+				B18E6EB51C1099C300282DAB /* CardDetailTableViewCell.m in Sources */,
 				B16B4BBE1BF853FB00377BF0 /* SKAPIStoreIndexModel.m in Sources */,
 				B1B1AD4E1C032CEE00CA3E65 /* iCocosPushNoticeViewController.m in Sources */,
 				B10C304C1C016728003C5EC9 /* XMShareWeiboUtil.m in Sources */,
 				B1654A531BF76F2D00A0B4B1 /* WeatherTableViewCell.m in Sources */,
 				B1ECAC0E1BF9542E00A8BDAA /* PooSearchBar.m in Sources */,
+				B1BF985E1C13251C007BC401 /* TrendCardView.m in Sources */,
 				B1098BBA1C09662400530A32 /* GuideCardViewController.m in Sources */,
 				B10C2FE41C00AD77003C5EC9 /* YALSunnyRefreshControl.m in Sources */,
 				B1ECABF81BF953FF00A8BDAA /* CityModel.swift in Sources */,
+				B14558211C157AD5007E39AF /* TodayEquipmentTableViewCell.m in Sources */,
 				B1404F791BCA0C3000078EE9 /* AppDelegate.m in Sources */,
 				B16B4BC51BF866D300377BF0 /* RequestInfo.m in Sources */,
 				B19708B91C00802A008AD2AF /* UIScrollView+VGParallaxHeader.m in Sources */,
 				B1ECABFE1BF953FF00A8BDAA /* HeaderItemView.swift in Sources */,
+				B14558261C15B54D007E39AF /* GraphHeadTableViewCell.m in Sources */,
 				B16749941BEB462D00650742 /* SKLocation.m in Sources */,
 				B1404F761BCA0C3000078EE9 /* main.m in Sources */,
 				B16B4B901BF84A9100377BF0 /* SKHeWeatherCondition.m in Sources */,
@@ -1607,13 +1572,16 @@
 				B1098BB51C08933200530A32 /* GuideViewController.m in Sources */,
 				B1654A6B1BF76F9600A0B4B1 /* SKChromatography.m in Sources */,
 				B1ECABF31BF953FF00A8BDAA /* LocationManager.swift in Sources */,
+				B19EAC8D1C0F28E700BAE301 /* SKWear.m in Sources */,
 				B16B4BB71BF8506900377BF0 /* SKAPIStoreTodayModel.m in Sources */,
 				B16B4BC61BF866D300377BF0 /* WmHttpRequestManager.m in Sources */,
+				B1BF984E1C130CCC007BC401 /* LazyPageScrollView.m in Sources */,
 				B16B4B8F1BF84A9100377BF0 /* SKHeWear.m in Sources */,
 				B1B1AD501C032CEE00CA3E65 /* iCocosSettingGroup.m in Sources */,
 				B1ECABF61BF953FF00A8BDAA /* CFCityPickerVC+Main.swift in Sources */,
 				B10D755B1C036A1400499B20 /* EggsViewController.m in Sources */,
 				B1ECAC181BFA009700A8BDAA /* HMFileManager.m in Sources */,
+				B1D835C61C141ABD003B3ED9 /* ForecastTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1636,16 +1604,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B10D756E1C037BDA00499B20 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B10D75611C037BDA00499B20 /* WearTodayExtension */;
-			targetProxy = B10D756D1C037BDA00499B20 /* PBXContainerItemProxy */;
-		};
-		B10D757F1C037C6800499B20 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B10D75771C037C6800499B20 /* WearSpotlightExtension */;
-			targetProxy = B10D757E1C037C6800499B20 /* PBXContainerItemProxy */;
-		};
 		B1404F8C1BCA0C3000078EE9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B1404F701BCA0C3000078EE9 /* Wear */;
@@ -1659,14 +1617,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B10D75691C037BDA00499B20 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B10D756A1C037BDA00499B20 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 		B1404F821BCA0C3000078EE9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1678,66 +1628,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B10D75701C037BDA00499B20 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = WearTodayExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Kai-Sun.Wear.WearTodayExtension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		B10D75711C037BDA00499B20 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = WearTodayExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Kai-Sun.Wear.WearTodayExtension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		B10D75821C037C6800499B20 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = WearSpotlightExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Kai-Sun.Wear.WearSpotlightExtension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		B10D75831C037C6800499B20 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = WearSpotlightExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Kai-Sun.Wear.WearSpotlightExtension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		B1404F9C1BCA0C3000078EE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1760,6 +1650,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1807,6 +1698,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1831,6 +1723,9 @@
 			baseConfigurationReference = CAD98D0251EA5FEB302E8547 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kai Sun (6278Q96CU6)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Wear/ThirdPart",
@@ -1857,6 +1752,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Kai-Sun.Wear";
 				PRODUCT_MODULE_NAME = Wear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8920cc91-8ef3-4599-9551-82226754b04d";
 			};
 			name = Debug;
 		};
@@ -1865,6 +1761,9 @@
 			baseConfigurationReference = C9D619C9F0F6762311662EF5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kai Sun (6278Q96CU6)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Wear/ThirdPart",
@@ -1891,6 +1790,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Kai-Sun.Wear";
 				PRODUCT_MODULE_NAME = Wear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8920cc91-8ef3-4599-9551-82226754b04d";
 			};
 			name = Release;
 		};
@@ -1959,24 +1859,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B10D75721C037BDA00499B20 /* Build configuration list for PBXNativeTarget "WearTodayExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B10D75701C037BDA00499B20 /* Debug */,
-				B10D75711C037BDA00499B20 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B10D75811C037C6800499B20 /* Build configuration list for PBXNativeTarget "WearSpotlightExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B10D75821C037C6800499B20 /* Debug */,
-				B10D75831C037C6800499B20 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B1404F6C1BCA0C3000078EE9 /* Build configuration list for PBXProject "Wear" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
